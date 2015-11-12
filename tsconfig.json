@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES5",
+    "noImplicitAny": true,
+    "out": "./script.js",
+    "sourceMap": false
+  },
+  "files": [
+    "interfaces.d.ts",
+    "script.ts"
+  ]
+}

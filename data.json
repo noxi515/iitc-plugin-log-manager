@@ -1,0 +1,2126 @@
+[
+  [
+    "6f47696e42e54c9780d4319ac33ae6f6.d",
+    1447159256269,
+    {
+      "plext": {
+        "text": "makisan96 deployed a Resonator on 女神像 (Japan, 境の谷（バス）（神奈川）)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "makisan96",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "女神像",
+              "plain": "女神像 (Japan, 境の谷（バス）（神奈川）)",
+              "team": "ENLIGHTENED",
+              "latE6": 35446368,
+              "address": "Japan, 境の谷（バス）（神奈川）",
+              "lngE6": 139614137
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "e24a0b8ff1e1423bbdaed6ff31ac9aed.d",
+    1447159256269,
+    {
+      "plext": {
+        "text": "makisan96 captured 女神像 (Japan, 境の谷（バス）（神奈川）)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "makisan96",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "女神像",
+              "plain": "女神像 (Japan, 境の谷（バス）（神奈川）)",
+              "team": "ENLIGHTENED",
+              "latE6": 35446368,
+              "address": "Japan, 境の谷（バス）（神奈川）",
+              "lngE6": 139614137
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "91c6ae6cf25449fc852ce93965920681.d",
+    1447159256124,
+    {
+      "plext": {
+        "text": "gu1969 linked 美空ひばり像 (Hirato-Sakuragi Road, ２丁目 Miyagawacho, Naka Ward, Yokohama, Kanagawa Prefecture 231-0065, Japan) to Lawson ローソン 横浜日の出町 ([Unknown Location])",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "gu1969",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "美空ひばり像",
+              "plain": "美空ひばり像 (Hirato-Sakuragi Road, ２丁目 Miyagawacho, Naka Ward, Yokohama, Kanagawa Prefecture 231-0065, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35446774,
+              "address": "Hirato-Sakuragi Road, ２丁目 Miyagawacho, Naka Ward, Yokohama, Kanagawa Prefecture 231-0065, Japan",
+              "lngE6": 139628137
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Lawson ローソン 横浜日の出町",
+              "plain": "Lawson ローソン 横浜日の出町 ([Unknown Location])",
+              "team": "RESISTANCE",
+              "latE6": 35446493,
+              "address": "[Unknown Location]",
+              "lngE6": 139628101
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "512cf49b953940099a80bd677a34b705.d",
+    1447159250718,
+    {
+      "plext": {
+        "text": "SABAMISO2 captured 横浜住吉町郵便局 (1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜住吉町郵便局",
+              "plain": "横浜住吉町郵便局 (1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35445282,
+              "address": "1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139639078
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "8b86bf50bce6418cb5daa3abc62ceb03.d",
+    1447159250718,
+    {
+      "plext": {
+        "text": "SABAMISO2 deployed a Resonator on 横浜住吉町郵便局 (1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜住吉町郵便局",
+              "plain": "横浜住吉町郵便局 (1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35445282,
+              "address": "1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139639078
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "359cc8b05e7041a499f1fa590495da50.d",
+    1447159239647,
+    {
+      "plext": {
+        "text": "bkigr linked 神殿 (3 Chome-5-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan) to 横浜賛歌 (3 Chome-6-1 Minatomirai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "bkigr",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "神殿",
+              "plain": "神殿 (3 Chome-5-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35457909,
+              "address": "3 Chome-5-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan",
+              "lngE6": 139631070
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜賛歌",
+              "plain": "横浜賛歌 (3 Chome-6-1 Minatomirai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35457353,
+              "address": "3 Chome-6-1 Minatomirai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan",
+              "lngE6": 139633368
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "60959b644a824023a74ccbea4ccfe7b9.d",
+    1447159239647,
+    {
+      "plext": {
+        "text": "bkigr created a Control Field @神殿 (3 Chome-5-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan) +39 MUs",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "bkigr",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " created a Control Field @"
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "神殿",
+              "plain": "神殿 (3 Chome-5-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35457909,
+              "address": "3 Chome-5-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan",
+              "lngE6": 139631070
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " +"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": "39"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " MUs"
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "a746ab9e807e43cf904c4b492458483f.d",
+    1447159238157,
+    {
+      "plext": {
+        "text": "takonomakura captured 野毛ちかみち (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "takonomakura",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "野毛ちかみち",
+              "plain": "野毛ちかみち (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+              "team": "RESISTANCE",
+              "latE6": 35450592,
+              "address": "Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５",
+              "lngE6": 139631088
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "f88e5f8219de49d3995bbd1563e6591f.d",
+    1447159238157,
+    {
+      "plext": {
+        "text": "takonomakura deployed a Resonator on 野毛ちかみち (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "takonomakura",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "野毛ちかみち",
+              "plain": "野毛ちかみち (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+              "team": "RESISTANCE",
+              "latE6": 35450592,
+              "address": "Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５",
+              "lngE6": 139631088
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "0ef5d335ffd74680b68c9edc04f706a5.d",
+    1447159234847,
+    {
+      "plext": {
+        "text": "ranusk captured 横浜市営地下鉄モザイクアート (1 Chome-9-8 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "ranusk",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜市営地下鉄モザイクアート",
+              "plain": "横浜市営地下鉄モザイクアート (1 Chome-9-8 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35466037,
+              "address": "1 Chome-9-8 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan",
+              "lngE6": 139619967
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "ef6c9fbd10474617ba312dc8c92fdb38.d",
+    1447159234847,
+    {
+      "plext": {
+        "text": "ranusk deployed a Resonator on 横浜市営地下鉄モザイクアート (1 Chome-9-8 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "ranusk",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜市営地下鉄モザイクアート",
+              "plain": "横浜市営地下鉄モザイクアート (1 Chome-9-8 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35466037,
+              "address": "1 Chome-9-8 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan",
+              "lngE6": 139619967
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "df31f52115bc4ef9ad41e959300a234b.d",
+    1447159225877,
+    {
+      "plext": {
+        "text": "namnamt linked ソフトバンク横浜ランドマーク (Unnamed Road, Yokohama-shi, Kanagawa-ken 220-8101, Japan) to 人々への賛歌 (2 Chome-2-1 Minatomirai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "namnamt",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "ソフトバンク横浜ランドマーク",
+              "plain": "ソフトバンク横浜ランドマーク (Unnamed Road, Yokohama-shi, Kanagawa-ken 220-8101, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35455022,
+              "address": "Unnamed Road, Yokohama-shi, Kanagawa-ken 220-8101, Japan",
+              "lngE6": 139630605
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "人々への賛歌",
+              "plain": "人々への賛歌 (2 Chome-2-1 Minatomirai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35455808,
+              "address": "2 Chome-2-1 Minatomirai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan",
+              "lngE6": 139631177
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "5dac5018a1e14a6dbe1472baa174bbe5.d",
+    1447159223826,
+    {
+      "plext": {
+        "text": "makisan96 deployed a Resonator on 境之谷北公園 (55-7 Sakainotani, Nishi Ward, Yokohama, Kanagawa, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "makisan96",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "境之谷北公園",
+              "plain": "境之谷北公園 (55-7 Sakainotani, Nishi Ward, Yokohama, Kanagawa, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35446908,
+              "address": "55-7 Sakainotani, Nishi Ward, Yokohama, Kanagawa, Japan",
+              "lngE6": 139614046
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "a1e8950db1b9497ab149d8df12b82df2.d",
+    1447159223826,
+    {
+      "plext": {
+        "text": "makisan96 captured 境之谷北公園 (55-7 Sakainotani, Nishi Ward, Yokohama, Kanagawa, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "makisan96",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "境之谷北公園",
+              "plain": "境之谷北公園 (55-7 Sakainotani, Nishi Ward, Yokohama, Kanagawa, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35446908,
+              "address": "55-7 Sakainotani, Nishi Ward, Yokohama, Kanagawa, Japan",
+              "lngE6": 139614046
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "d380c6a6a73248bab76765b14298e324.d",
+    1447159219125,
+    {
+      "plext": {
+        "text": "takonomakura destroyed a Resonator on エドモンド・モレルのレリーフ (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "takonomakura",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "エドモンド・モレルのレリーフ",
+              "plain": "エドモンド・モレルのレリーフ (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+              "team": "ENLIGHTENED",
+              "latE6": 35450719,
+              "address": "Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５",
+              "lngE6": 139631288
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "e7e4fc7656294a74bdff71313ebd8116.d",
+    1447159217630,
+    {
+      "plext": {
+        "text": "Feinnel linked 日本丸メモリアルパークのモチーフ (Japan, ロイヤルパークホテル（バス）（Kanagawa Prefecture）) to road art 列車 (1 Chome-1 Sakuragichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0062, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "Feinnel",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "日本丸メモリアルパークのモチーフ",
+              "plain": "日本丸メモリアルパークのモチーフ (Japan, ロイヤルパークホテル（バス）（Kanagawa Prefecture）)",
+              "team": "RESISTANCE",
+              "latE6": 35453701,
+              "address": "Japan, ロイヤルパークホテル（バス）（Kanagawa Prefecture）",
+              "lngE6": 139631768
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "road art 列車",
+              "plain": "road art 列車 (1 Chome-1 Sakuragichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0062, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35450366,
+              "address": "1 Chome-1 Sakuragichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0062, Japan",
+              "lngE6": 139631561
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "3d44bdfe730f4284877620e8a39c3df8.d",
+    1447159216236,
+    {
+      "plext": {
+        "text": "NGNGNG captured Lawson ローソン ＬＡＷＳＯＮ＋ｔｏｋｓ横浜駅 ([Unknown Location])",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "NGNGNG",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Lawson ローソン ＬＡＷＳＯＮ＋ｔｏｋｓ横浜駅",
+              "plain": "Lawson ローソン ＬＡＷＳＯＮ＋ｔｏｋｓ横浜駅 ([Unknown Location])",
+              "team": "ENLIGHTENED",
+              "latE6": 35466606,
+              "address": "[Unknown Location]",
+              "lngE6": 139622221
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "d7def85da5ac47d493ad8d7d79d8c901.d",
+    1447159216236,
+    {
+      "plext": {
+        "text": "NGNGNG deployed a Resonator on Lawson ローソン ＬＡＷＳＯＮ＋ｔｏｋｓ横浜駅 ([Unknown Location])",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "NGNGNG",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Lawson ローソン ＬＡＷＳＯＮ＋ｔｏｋｓ横浜駅",
+              "plain": "Lawson ローソン ＬＡＷＳＯＮ＋ｔｏｋｓ横浜駅 ([Unknown Location])",
+              "team": "ENLIGHTENED",
+              "latE6": 35466606,
+              "address": "[Unknown Location]",
+              "lngE6": 139622221
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "29c70f92f38144f686d7c4fd24c459a2.d",
+    1447159216072,
+    {
+      "plext": {
+        "text": "takonomakura destroyed a Resonator on 桜木町床タイル (Sakuragicho Station, 1 Chome Sakuragichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0062, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "takonomakura",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "桜木町床タイル",
+              "plain": "桜木町床タイル (Sakuragicho Station, 1 Chome Sakuragichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0062, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35450863,
+              "address": "Sakuragicho Station, 1 Chome Sakuragichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0062, Japan",
+              "lngE6": 139630697
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "6659d72a34294ad2a46f8b6d02a0f501.d",
+    1447159214231,
+    {
+      "plext": {
+        "text": "takonomakura destroyed a Resonator on 野毛ちかみち (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "takonomakura",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "野毛ちかみち",
+              "plain": "野毛ちかみち (Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５)",
+              "team": "ENLIGHTENED",
+              "latE6": 35450592,
+              "address": "Japan, Kanagawa Prefecture, Yokohama, Naka Ward, Sakuragicho, １丁目１−７５",
+              "lngE6": 139631088
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "a9a7e0f97b8a45359c892521ce0c45c1.d",
+    1447159213090,
+    {
+      "plext": {
+        "text": "namnamt deployed a Resonator on ソフトバンク横浜ランドマーク (Unnamed Road, Yokohama-shi, Kanagawa-ken 220-8101, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "namnamt",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "ソフトバンク横浜ランドマーク",
+              "plain": "ソフトバンク横浜ランドマーク (Unnamed Road, Yokohama-shi, Kanagawa-ken 220-8101, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35455022,
+              "address": "Unnamed Road, Yokohama-shi, Kanagawa-ken 220-8101, Japan",
+              "lngE6": 139630605
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "20293ae2846d46b6988781f1fa4a28f4.d",
+    1447159211698,
+    {
+      "plext": {
+        "text": "SABAMISO2 captured 神奈川県電気発祥の地 (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "神奈川県電気発祥の地",
+              "plain": "神奈川県電気発祥の地 (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35445186,
+              "address": "1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139638380
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "8ec12ef5cd804164b97f17d33624fe71.d",
+    1447159211698,
+    {
+      "plext": {
+        "text": "SABAMISO2 deployed a Resonator on 神奈川県電気発祥の地 (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "神奈川県電気発祥の地",
+              "plain": "神奈川県電気発祥の地 (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35445186,
+              "address": "1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139638380
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "0e3352f9b7134dd3b127561a85a78dc9.d",
+    1447159206209,
+    {
+      "plext": {
+        "text": "SABAMISO2 deployed a Resonator on 横浜開港記念館 Wallart (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜開港記念館 Wallart",
+              "plain": "横浜開港記念館 Wallart (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35445197,
+              "address": "1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan",
+              "lngE6": 139638705
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "a0571e2037df4e41bec59f7b979857c2.d",
+    1447159206209,
+    {
+      "plext": {
+        "text": "SABAMISO2 captured 横浜開港記念館 Wallart (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜開港記念館 Wallart",
+              "plain": "横浜開港記念館 Wallart (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35445197,
+              "address": "1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan",
+              "lngE6": 139638705
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "45d6751b11bb4a1a9f67c26472c8048c.d",
+    1447159205331,
+    {
+      "plext": {
+        "text": "SABAMISO2 destroyed a Resonator on 神奈川県電気発祥の地 (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "神奈川県電気発祥の地",
+              "plain": "神奈川県電気発祥の地 (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35445186,
+              "address": "1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139638380
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "0c39bdf8b40d4a8c9b1bd64f0d8dee63.d",
+    1447159202796,
+    {
+      "plext": {
+        "text": "NGNGNG linked Ying Yang Mural  (1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan) to 香港龍 (1 Chome-2-1 Minamisaiwai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "NGNGNG",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Ying Yang Mural ",
+              "plain": "Ying Yang Mural  (1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35466656,
+              "address": "1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan",
+              "lngE6": 139622662
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "香港龍",
+              "plain": "香港龍 (1 Chome-2-1 Minamisaiwai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35467332,
+              "address": "1 Chome-2-1 Minamisaiwai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan",
+              "lngE6": 139622842
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "6591ea28e1244328a6a894e4cfd70249.d",
+    1447159202796,
+    {
+      "plext": {
+        "text": "NGNGNG created a Control Field @Ying Yang Mural  (1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan) +7 MUs",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "NGNGNG",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " created a Control Field @"
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Ying Yang Mural ",
+              "plain": "Ying Yang Mural  (1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35466656,
+              "address": "1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan",
+              "lngE6": 139622662
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " +"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": "7"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " MUs"
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "2a0389d373764487b64822ba6e82660a.d",
+    1447159200398,
+    {
+      "plext": {
+        "text": "gu1969 captured Lawson ローソン 横浜日の出町 ([Unknown Location])",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "gu1969",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Lawson ローソン 横浜日の出町",
+              "plain": "Lawson ローソン 横浜日の出町 ([Unknown Location])",
+              "team": "RESISTANCE",
+              "latE6": 35446493,
+              "address": "[Unknown Location]",
+              "lngE6": 139628101
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "bcbbc731c7124621a23382099f26a8f5.d",
+    1447159200398,
+    {
+      "plext": {
+        "text": "gu1969 deployed a Resonator on Lawson ローソン 横浜日の出町 ([Unknown Location])",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "gu1969",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Lawson ローソン 横浜日の出町",
+              "plain": "Lawson ローソン 横浜日の出町 ([Unknown Location])",
+              "team": "RESISTANCE",
+              "latE6": 35446493,
+              "address": "[Unknown Location]",
+              "lngE6": 139628101
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "8accbd99811c4c8d80618bc11debd763.d",
+    1447159199370,
+    {
+      "plext": {
+        "text": "SABAMISO2 destroyed a Resonator on 横浜開港記念館 Wallart (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜開港記念館 Wallart",
+              "plain": "横浜開港記念館 Wallart (1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35445197,
+              "address": "1 Chome-6 Tokiwachō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0014, Japan",
+              "lngE6": 139638705
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "814d7f8fe64a45a38ede6e3e8dd537dd.d",
+    1447159198470,
+    {
+      "plext": {
+        "text": "lupit linked 横浜宿町郵便局 Yokohama Yado-machi Post Office (Japan, Kanagawa Prefecture, Yokohama, Minami Ward, Shukucho, ２丁目３２) to 丘と川ジョイントプロムナード (23-4 Idogaya Shimomachi, Minami-ku, Yokohama-shi, Kanagawa-ken 232-0053, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "lupit",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜宿町郵便局 Yokohama Yado-machi Post Office",
+              "plain": "横浜宿町郵便局 Yokohama Yado-machi Post Office (Japan, Kanagawa Prefecture, Yokohama, Minami Ward, Shukucho, ２丁目３２)",
+              "team": "RESISTANCE",
+              "latE6": 35432610,
+              "address": "Japan, Kanagawa Prefecture, Yokohama, Minami Ward, Shukucho, ２丁目３２",
+              "lngE6": 139611571
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "丘と川ジョイントプロムナード",
+              "plain": "丘と川ジョイントプロムナード (23-4 Idogaya Shimomachi, Minami-ku, Yokohama-shi, Kanagawa-ken 232-0053, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35432836,
+              "address": "23-4 Idogaya Shimomachi, Minami-ku, Yokohama-shi, Kanagawa-ken 232-0053, Japan",
+              "lngE6": 139609026
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "4c0af6ffa9dd4c7f814e91df76e9ab31.d",
+    1447159194164,
+    {
+      "plext": {
+        "text": "NGNGNG linked Ying Yang Mural  (1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan) to 月と星（元 Bang Wall Art） (1 Chome-2-7 Minamisaiwai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "NGNGNG",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "Ying Yang Mural ",
+              "plain": "Ying Yang Mural  (1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35466656,
+              "address": "1 Chome-1-12 Minamisaiwai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0005, Japan",
+              "lngE6": 139622662
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "月と星（元 Bang Wall Art）",
+              "plain": "月と星（元 Bang Wall Art） (1 Chome-2-7 Minamisaiwai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35467156,
+              "address": "1 Chome-2-7 Minamisaiwai, Nishi Ward, Yokohama, Kanagawa Prefecture, Japan",
+              "lngE6": 139622469
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "12991e56eec74e199dd68f7f2a7002d2.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "1541817c3a2040d4b89ef2c85a930dee.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "3005bd0bf6474b3185a3b50604c95f97.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "306c019abe9a4a979f0f44a71e800acf.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "3b734b8ebc894291854ff60257a00fce.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "7fd00ae8983e416d8781f46bc218bb58.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "9ed0b29146914876a5eda9673d884ce6.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "b543f105f9fc4ff5bd206568efd937de.d",
+    1447159193786,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Resonator on 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "01fadbbde244457ca4cf30a0889fe5c6.d",
+    1447159193593,
+    {
+      "plext": {
+        "text": "noxi515 destroyed the Link 野毛仲通り (2 Chome-62 Nogechō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0064, Japan) to 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed the Link "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "野毛仲通り",
+              "plain": "野毛仲通り (2 Chome-62 Nogechō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0064, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35447777,
+              "address": "2 Chome-62 Nogechō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0064, Japan",
+              "lngE6": 139629347
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "c171acdb4a2143afb64b819bbf92c9a7.d",
+    1447159193593,
+    {
+      "plext": {
+        "text": "noxi515 destroyed a Control Field @三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan) -73 MUs",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Control Field @"
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " -"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": "73"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " MUs"
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "c5c373b2826e45ed8ecab7e42d6dee42.d",
+    1447159193593,
+    {
+      "plext": {
+        "text": "noxi515 destroyed the Link 三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan) to ばか鍋 浜幸 (1 Chome-24 Nogecho, Naka Ward, Yokohama, Kanagawa, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "noxi515",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed the Link "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前",
+              "plain": "三菱東京UFJ銀行　ATMコーナー　桜木町駅前 (2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35449481,
+              "address": "2 Chome-61 Hanasakichō, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0063, Japan",
+              "lngE6": 139629639
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "ばか鍋 浜幸",
+              "plain": "ばか鍋 浜幸 (1 Chome-24 Nogecho, Naka Ward, Yokohama, Kanagawa, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35447723,
+              "address": "1 Chome-24 Nogecho, Naka Ward, Yokohama, Kanagawa, Japan",
+              "lngE6": 139630495
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "b997b53976684c4285b31a2e450d4763.d",
+    1447159193377,
+    {
+      "plext": {
+        "text": "SABAMISO2 destroyed a Resonator on 横浜住吉町郵便局 (1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "SABAMISO2",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " destroyed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "横浜住吉町郵便局",
+              "plain": "横浜住吉町郵便局 (1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35445282,
+              "address": "1 Chome-13 Sumiyoshichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139639078
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "5c810d5374564ba3a781c2b7daa71092.d",
+    1447159190030,
+    {
+      "plext": {
+        "text": "bkigr deployed a Resonator on \"FUTURE PARK\" mural (3 Chome-4-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "bkigr",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "\"FUTURE PARK\" mural",
+              "plain": "\"FUTURE PARK\" mural (3 Chome-4-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35457547,
+              "address": "3 Chome-4-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan",
+              "lngE6": 139630368
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "bdd3b941dedc473da4a0e3761f11faeb.d",
+    1447159190030,
+    {
+      "plext": {
+        "text": "bkigr captured \"FUTURE PARK\" mural (3 Chome-4-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "bkigr",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "\"FUTURE PARK\" mural",
+              "plain": "\"FUTURE PARK\" mural (3 Chome-4-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35457547,
+              "address": "3 Chome-4-1 Minatomirai, Nishi-ku, Yokohama-shi, Kanagawa-ken 220-0012, Japan",
+              "lngE6": 139630368
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "6f32fa108a604a0ea4df9e7f1ab29c9a.d",
+    1447159189599,
+    {
+      "plext": {
+        "text": "jozejiro linked 大通り公園噴水 (3 Chome-9 Bandaichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan) to 馬 (5 Chome-62 Tokiwacho, Naka Ward, Yokohama, Kanagawa, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "jozejiro",
+              "team": "RESISTANCE"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " linked "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "大通り公園噴水",
+              "plain": "大通り公園噴水 (3 Chome-9 Bandaichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35441876,
+              "address": "3 Chome-9 Bandaichō, Naka-ku, Yokohama-shi, Kanagawa-ken, Japan",
+              "lngE6": 139634158
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " to "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "馬",
+              "plain": "馬 (5 Chome-62 Tokiwacho, Naka Ward, Yokohama, Kanagawa, Japan)",
+              "team": "RESISTANCE",
+              "latE6": 35446685,
+              "address": "5 Chome-62 Tokiwacho, Naka Ward, Yokohama, Kanagawa, Japan",
+              "lngE6": 139635280
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "RESISTANCE"
+      }
+    }
+  ],
+  [
+    "2fd8ed2f0aec4f48917cd6626ca59744.d",
+    1447159187908,
+    {
+      "plext": {
+        "text": "nishihigashi captured 元町仲通り北側 (5 Chome-196 Motomachi, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0861, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "nishihigashi",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " captured "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "元町仲通り北側",
+              "plain": "元町仲通り北側 (5 Chome-196 Motomachi, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0861, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35438721,
+              "address": "5 Chome-196 Motomachi, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0861, Japan",
+              "lngE6": 139645638
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ],
+  [
+    "43a6960aacfa44dbb85daefe444f6748.d",
+    1447159187908,
+    {
+      "plext": {
+        "text": "nishihigashi deployed a Resonator on 元町仲通り北側 (5 Chome-196 Motomachi, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0861, Japan)",
+        "markup": [
+          [
+            "PLAYER",
+            {
+              "plain": "nishihigashi",
+              "team": "ENLIGHTENED"
+            }
+          ],
+          [
+            "TEXT",
+            {
+              "plain": " deployed a Resonator on "
+            }
+          ],
+          [
+            "PORTAL",
+            {
+              "name": "元町仲通り北側",
+              "plain": "元町仲通り北側 (5 Chome-196 Motomachi, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0861, Japan)",
+              "team": "ENLIGHTENED",
+              "latE6": 35438721,
+              "address": "5 Chome-196 Motomachi, Naka-ku, Yokohama-shi, Kanagawa-ken 231-0861, Japan",
+              "lngE6": 139645638
+            }
+          ]
+        ],
+        "plextType": "SYSTEM_BROADCAST",
+        "categories": 1,
+        "team": "ENLIGHTENED"
+      }
+    }
+  ]
+]

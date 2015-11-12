@@ -1,0 +1,83 @@
+#dialog-log-manager {
+    max-width: 900px !important;
+}
+
+.log-manager-logs {
+    table-layout: fixed;
+    width: 876px;
+}
+
+.log-manager-logs th,
+.log-manager-logs td {
+    border-bottom: 1px solid #0B314E;
+    padding: 3px 5px;
+}
+
+.log-manager-logs td {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.log-manager-logs .nx-time {
+    width: 150px;
+}
+
+.log-manager-logs .nx-type {
+    width: 80px;
+}
+
+.log-manager-logs .nx-pname {
+    width: 400px;
+}
+
+.log-manager-logs .nx-pteam,
+.log-manager-logs .nx-agteam {
+    width: 38px;
+}
+
+.log-manager-logs .nx-agname {
+    width: 100px;
+}
+
+.log-manager-logs tr.enl,
+.log-manager-logs td.enl {
+    color: #03FE03 !important;
+}
+
+.log-manager-logs tr.res,
+.log-manager-logs td.res {
+    color: #00C5FF !important;
+}
+
+.log-manager-logs tr.enl {
+    background-color: #017F01;
+}
+
+.log-manager-logs tr.res {
+    background-color: #005684;
+}
+
+.log-manager-filters {
+}
+
+.log-manager-filter-row {
+}
+
+.log-manager-filter {
+    float: left;
+    width: 32%;
+    height: 26px;
+}
+
+.log-manager-filter label {
+    width: 35%;
+    float: left;
+    padding-top: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.log-manager-filter div.filter-container {
+    width: 65%;
+    float: left;
+}
