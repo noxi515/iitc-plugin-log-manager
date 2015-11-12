@@ -349,6 +349,8 @@ function wrapper(plugin_info: GMPluginInfo) {
         private $title: JQuery;
         private $filters: JQuery;
         private $table: JQuery;
+        private $inputs: JQuery;
+
         private wrappers: Array<LogRowWrapper> = new Array(1000);
 
         private filterChangeListener: (values: FilterValues) => void;
@@ -376,20 +378,16 @@ function wrapper(plugin_info: GMPluginInfo) {
                 .append(this.$filters)
                 .append(this.$table);
 
+            this.$inputs = this.$filters.find('input:text, select');
+
             this.$filters
                 .on('keyup', 'input:text', ev => {
                     if (ev.keyCode !== 13)
                         return;
 
-                    let el = <HTMLInputElement>ev.target;
-                    if (!el.checkValidity())
-                        return;
-
-                    this.onFilterChanged(el);
+                    this.onFilterChanged();
                 })
-                .on('change', 'select', ev => {
-                    this.onFilterChanged(<HTMLSelectElement>ev.target);
-                });
+                .on('change', 'select', ev => this.onFilterChanged());
         }
 
         public setOnFilterValuesChangeListener(listener: (values: FilterValues) => void) {
@@ -404,32 +402,40 @@ function wrapper(plugin_info: GMPluginInfo) {
             this.wrappers.forEach((w: LogRowWrapper, i: number) => w.log = i < length ? logs[i] : null);
         }
 
-        private onFilterChanged(el: HTMLInputElement|HTMLSelectElement) {
-            let key = el.id.replace(/^log-manager-/, '');
-            let value = el.value;
+        private onFilterChanged() {
+            let newValues: FilterValues = {};
+            for (var i = 0; i < this.$inputs.length; i++) {
+                let el = <HTMLInputElement|HTMLSelectElement>this.$inputs[i];
+                if (!el.checkValidity())
+                    return;
 
-            switch (key) {
-                case 'type':
-                    this.filterValues.type = value ? parseInt(value) : null;
-                    break;
+                let key = el.id.replace(/^log-manager-/, '');
+                let value = el.value;
 
-                case 'pname':
-                    this.filterValues.pname = value ? value : null;
-                    break;
+                switch (key) {
+                    case 'type':
+                        newValues.type = value ? parseInt(value) : null;
+                        break;
 
-                case 'agname':
-                    this.filterValues.agname = value ? value : null;
-                    break;
+                    case 'pname':
+                        newValues.pname = value ? value : null;
+                        break;
 
-                case 'dateFrom':
-                    this.filterValues.dateFrom = value ? new Date(value.replace(/\s/, 'T')) : null;
-                    break;
+                    case 'agname':
+                        newValues.agname = value ? value : null;
+                        break;
 
-                case 'dateTo':
-                    this.filterValues.dateTo = value ? new Date(value.replace(/\s/, 'T')) : null;
-                    break;
+                    case 'dateFrom':
+                        newValues.dateFrom = value ? new Date(value.replace(/\s/, 'T')) : null;
+                        break;
+
+                    case 'dateTo':
+                        newValues.dateTo = value ? new Date(value.replace(/\s/, 'T')) : null;
+                        break;
+                }
             }
 
+            this.filterValues = newValues;
             this.filterChanged();
         }
 

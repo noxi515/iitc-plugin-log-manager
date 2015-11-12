@@ -267,18 +267,14 @@ function wrapper(plugin_info) {
             this.$root.children()
                 .append(this.$filters)
                 .append(this.$table);
+            this.$inputs = this.$filters.find('input:text, select');
             this.$filters
                 .on('keyup', 'input:text', function (ev) {
                 if (ev.keyCode !== 13)
                     return;
-                var el = ev.target;
-                if (!el.checkValidity())
-                    return;
-                _this.onFilterChanged(el);
+                _this.onFilterChanged();
             })
-                .on('change', 'select', function (ev) {
-                _this.onFilterChanged(ev.target);
-            });
+                .on('change', 'select', function (ev) { return _this.onFilterChanged(); });
         }
         LogManagerDialogImpl.prototype.setOnFilterValuesChangeListener = function (listener) {
             this.filterChangeListener = listener;
@@ -289,26 +285,33 @@ function wrapper(plugin_info) {
             var length = logs.length;
             this.wrappers.forEach(function (w, i) { return w.log = i < length ? logs[i] : null; });
         };
-        LogManagerDialogImpl.prototype.onFilterChanged = function (el) {
-            var key = el.id.replace(/^log-manager-/, '');
-            var value = el.value;
-            switch (key) {
-                case 'type':
-                    this.filterValues.type = value ? parseInt(value) : null;
-                    break;
-                case 'pname':
-                    this.filterValues.pname = value ? value : null;
-                    break;
-                case 'agname':
-                    this.filterValues.agname = value ? value : null;
-                    break;
-                case 'dateFrom':
-                    this.filterValues.dateFrom = value ? new Date(value.replace(/\s/, 'T')) : null;
-                    break;
-                case 'dateTo':
-                    this.filterValues.dateTo = value ? new Date(value.replace(/\s/, 'T')) : null;
-                    break;
+        LogManagerDialogImpl.prototype.onFilterChanged = function () {
+            var newValues = {};
+            for (var i = 0; i < this.$inputs.length; i++) {
+                var el = this.$inputs[i];
+                if (!el.checkValidity())
+                    return;
+                var key = el.id.replace(/^log-manager-/, '');
+                var value = el.value;
+                switch (key) {
+                    case 'type':
+                        newValues.type = value ? parseInt(value) : null;
+                        break;
+                    case 'pname':
+                        newValues.pname = value ? value : null;
+                        break;
+                    case 'agname':
+                        newValues.agname = value ? value : null;
+                        break;
+                    case 'dateFrom':
+                        newValues.dateFrom = value ? new Date(value.replace(/\s/, 'T')) : null;
+                        break;
+                    case 'dateTo':
+                        newValues.dateTo = value ? new Date(value.replace(/\s/, 'T')) : null;
+                        break;
+                }
             }
+            this.filterValues = newValues;
             this.filterChanged();
         };
         LogManagerDialogImpl.prototype.filterChanged = function () {
