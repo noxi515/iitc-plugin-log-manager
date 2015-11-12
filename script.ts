@@ -198,14 +198,20 @@ function wrapper(plugin_info: GMPluginInfo) {
 
             var promise: Promise<QueryResult<Log>>;
             if (indexNameArgs.length == 0) {
-                promise = this.db.getAll(consts.ROW_LIMIT);
+                if (!values.dateFrom && !values.dateTo) {
+                    promise = this.db.getAll(consts.ROW_LIMIT);
+                } else {
+                    let lower = values.dateFrom ? values.dateFrom : new Date(2015, 1, 1, 0, 0, 0, 0);
+                    let upper = values.dateTo ? values.dateTo : new Date();
+                    promise = this.db.getWithCondition('time', consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
+                }
             } else {
                 indexNameArgs.push('time');
 
                 let lower = args.slice();
-                lower.push(values.dateFrom ? values.dateFrom : new Date(2015, 1, 1, 0, 0, 0, 0))
+                lower.push(values.dateFrom ? values.dateFrom : new Date(2015, 1, 1, 0, 0, 0, 0));
                 let upper = args.slice();
-                upper.push(values.dateTo ? values.dateTo : new Date())
+                upper.push(values.dateTo ? values.dateTo : new Date());
                 promise = this.db.getWithCondition(indexNameArgs.join(','), consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
             }
 
@@ -564,7 +570,6 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         public getWithCondition(indexName: string, limit: number, range: IDBKeyRange) {
-            debugger;
             return this.getCount(indexName, range)
                        .then(count => this.fetch(indexName, count > limit ? limit : count, range)
                                           .then(logs => Promise.resolve({"count": count, "values": logs})));

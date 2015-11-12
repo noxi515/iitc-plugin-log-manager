@@ -185,7 +185,14 @@ function wrapper(plugin_info) {
             }
             var promise;
             if (indexNameArgs.length == 0) {
-                promise = this.db.getAll(consts.ROW_LIMIT);
+                if (!values.dateFrom && !values.dateTo) {
+                    promise = this.db.getAll(consts.ROW_LIMIT);
+                }
+                else {
+                    var lower = values.dateFrom ? values.dateFrom : new Date(2015, 1, 1, 0, 0, 0, 0);
+                    var upper = values.dateTo ? values.dateTo : new Date();
+                    promise = this.db.getWithCondition('time', consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
+                }
             }
             else {
                 indexNameArgs.push('time');
@@ -417,7 +424,6 @@ function wrapper(plugin_info) {
         };
         LogDB.prototype.getWithCondition = function (indexName, limit, range) {
             var _this = this;
-            debugger;
             return this.getCount(indexName, range)
                 .then(function (count) { return _this.fetch(indexName, count > limit ? limit : count, range)
                 .then(function (logs) { return Promise.resolve({ "count": count, "values": logs }); }); });
