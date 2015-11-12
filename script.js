@@ -341,9 +341,6 @@ function wrapper(plugin_info) {
             set: function (log) {
                 if (log == null) {
                     this.$root.hide();
-                    LogRowWrapper.updateTeamCssClass(this.root, this._log == null ? null : this._log.playerTeam, null);
-                    LogRowWrapper.updateTeamCssClass(this.portalTeam, this._log == null ? null : this._log.portalTeam, null);
-                    LogRowWrapper.updateTeamCssClass(this.playerTeam, this._log == null ? null : this._log.playerTeam, null);
                     return;
                 }
                 this.$root.show();
@@ -354,25 +351,17 @@ function wrapper(plugin_info) {
                 this.portalTeam.textContent = consts.teamToLabel(log.portalTeam);
                 this.playerName.textContent = log.playerName;
                 this.playerTeam.textContent = consts.teamToLabel(log.playerTeam);
-                LogRowWrapper.updateTeamCssClass(this.root, this._log == null ? null : this._log.playerTeam, log.playerTeam);
-                LogRowWrapper.updateTeamCssClass(this.portalTeam, this._log == null ? null : this._log.portalTeam, log.portalTeam);
-                LogRowWrapper.updateTeamCssClass(this.playerTeam, this._log == null ? null : this._log.playerTeam, log.playerTeam);
+                LogRowWrapper.updateTeamCssClass(this.root, log.playerTeam);
+                LogRowWrapper.updateTeamCssClass(this.portalTeam, log.portalTeam);
+                LogRowWrapper.updateTeamCssClass(this.playerTeam, log.playerTeam);
                 this._log = log;
             },
             enumerable: true,
             configurable: true
         });
-        LogRowWrapper.updateTeamCssClass = function (element, oldTeam, newTeam) {
-            if (oldTeam === null) {
-                if (newTeam === null)
-                    return;
-                element.classList.add(consts.teamToCssClass(newTeam));
-                return;
-            }
-            if (oldTeam === newTeam) {
-                return;
-            }
-            element.classList.remove(consts.teamToCssClass(oldTeam));
+        LogRowWrapper.updateTeamCssClass = function (element, newTeam) {
+            element.classList.remove('enl');
+            element.classList.remove('res');
             element.classList.add(consts.teamToCssClass(newTeam));
         };
         return LogRowWrapper;

@@ -464,9 +464,6 @@ function wrapper(plugin_info: GMPluginInfo) {
         set log(log: Log) {
             if (log == null) {
                 this.$root.hide();
-                LogRowWrapper.updateTeamCssClass(this.root, this._log == null ? null : this._log.playerTeam, null);
-                LogRowWrapper.updateTeamCssClass(this.portalTeam, this._log == null ? null : this._log.portalTeam, null);
-                LogRowWrapper.updateTeamCssClass(this.playerTeam, this._log == null ? null : this._log.playerTeam, null);
                 return;
             }
 
@@ -480,9 +477,9 @@ function wrapper(plugin_info: GMPluginInfo) {
             this.playerName.textContent = log.playerName;
             this.playerTeam.textContent = consts.teamToLabel(log.playerTeam);
 
-            LogRowWrapper.updateTeamCssClass(this.root, this._log == null ? null : this._log.playerTeam, log.playerTeam);
-            LogRowWrapper.updateTeamCssClass(this.portalTeam, this._log == null ? null : this._log.portalTeam, log.portalTeam);
-            LogRowWrapper.updateTeamCssClass(this.playerTeam, this._log == null ? null : this._log.playerTeam, log.playerTeam);
+            LogRowWrapper.updateTeamCssClass(this.root, log.playerTeam);
+            LogRowWrapper.updateTeamCssClass(this.portalTeam, log.portalTeam);
+            LogRowWrapper.updateTeamCssClass(this.playerTeam, log.playerTeam);
 
             this._log = log;
         }
@@ -497,20 +494,9 @@ function wrapper(plugin_info: GMPluginInfo) {
             this.playerTeam = <HTMLTableDataCellElement>this.root.children[5];
         }
 
-        private static updateTeamCssClass(element: Element, oldTeam: number, newTeam: number) {
-            if (oldTeam === null) {
-                if (newTeam === null)
-                    return;
-
-                element.classList.add(consts.teamToCssClass(newTeam));
-                return;
-            }
-
-            if (oldTeam === newTeam) {
-                return;
-            }
-
-            element.classList.remove(consts.teamToCssClass(oldTeam));
+        private static updateTeamCssClass(element: Element, newTeam: number) {
+            element.classList.remove('enl');
+            element.classList.remove('res');
             element.classList.add(consts.teamToCssClass(newTeam));
         }
 
