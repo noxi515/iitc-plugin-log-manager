@@ -253,11 +253,12 @@ function wrapper(plugin_info) {
             this.wrappers = new Array(1000);
             this.filterValues = {};
             this.$title = $root.prev().find('.ui-dialog-title');
-            this.$filters = $(LogManagerDialogImpl.TABLE_FILTER_HTML);
-            this.$table = $(LogManagerDialogImpl.LOG_TABLE_HTML);
+            this.$filters = $($('#noxi-log-filter-template').html());
+            this.$table = $($('#noxi-log-table-template').html());
             var $tableBody = $(this.$table.find('tbody'));
+            var logRowTemplate = $('#noxi-log-row-template').html();
             for (var i = 0; i < 1000; i++) {
-                var $row = $(LogManagerDialogImpl.LOG_ROW_HTML);
+                var $row = $(logRowTemplate);
                 $tableBody.append($row);
                 this.wrappers[i] = new LogRowWrapper($row);
             }
@@ -320,9 +321,6 @@ function wrapper(plugin_info) {
             if (this.filterChangeListener)
                 this.filterChangeListener(this.filterValues);
         };
-        LogManagerDialogImpl.TABLE_FILTER_HTML = "\n<div class=\"log-manager-filters\">\n    <div class=\"log-manager-filter-row\">\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-type\">Type</label>\n            <div class=\"filter-container\">\n                <select id=\"log-manager-type\">\n                    <option value=\"\">ALL</option>\n                    <option value=\"1\">Destroy resonator</option>\n                    <option value=\"2\">Destroy link</option>\n                    <option value=\"3\">Destroy field</option>\n                    <option value=\"4\">Capture portal</option>\n                    <option value=\"5\">Deploy resonator</option>\n                    <option value=\"6\">Create link</option>\n                    <option value=\"7\">Create field</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-pname\">Portal Name</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-pname\" placeholder=\"Portal name\"/>\n            </div>\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-dateFrom\">Date From</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-dateFrom\" placeholder=\"2015-01-01 00:00:00\" pattern=\"\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\">\n            </div>\n        </div>\n    </div>\n    <div class=\"log-manager-filter-row\">\n        <div class=\"log-manager-filter\">\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-agname\">Agent Name</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-agname\" placeholder=\"Agent name\">\n            </div>\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-dateTo\">Date To</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-dateTo\" placeholder=\"2015-01-01 00:00:00\" pattern=\"\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\"/>\n            </div>\n        </div>\n    </div>\n</div>\n";
-        LogManagerDialogImpl.LOG_TABLE_HTML = "\n<table class=\"log-manager-logs\">\n    <thead>\n    <tr>\n        <th class=\"nx-time\">Time</th>\n        <th class=\"nx-type\">Type</th>\n        <th class=\"nx-pname\">Portal Name</th>\n        <th class=\"nx-pteam\">Portal Team</th>\n        <th class=\"nx-agname\">Player Name</th>\n        <th class=\"nx-agteam\">Player Team</th>\n    </tr>\n    </thead>\n    <tbody>\n    </tbody>\n</table>\n";
-        LogManagerDialogImpl.LOG_ROW_HTML = "\n<tr class=\"log-manager-row\" style=\"display: none;\">\n    <td class=\"nx-time\"></td>\n    <td class=\"nx-type\"></td>\n    <td class=\"nx-pname\">\n        <a class=\"nx-plink\"></a>\n    </td>\n    <td class=\"nx-pteam\"></td>\n    <td class=\"nx-agname\"></td>\n    <td class=\"nx-agteam\"></td>\n</tr>\n";
         return LogManagerDialogImpl;
     })();
     var LogRowWrapper = (function () {
@@ -483,8 +481,27 @@ if (typeof GM_info !== 'undefined' && GM_info && GM_info.script)
     };
 script.appendChild(document.createTextNode("(" + wrapper + ")(" + JSON.stringify(info) + ");"));
 (document.body || document.head || document.documentElement).appendChild(script);
+// BEGIN CSS
 var style = document.createElement('style');
 style.id = 'noxi-iitc-log-manager-css';
 style.type = 'text/css';
 style.appendChild(document.createTextNode("\n#dialog-log-manager {\n    max-width: 900px !important;\n}\n\n.log-manager-logs {\n    table-layout: fixed;\n    width: 876px;\n}\n\n.log-manager-logs th,\n.log-manager-logs td {\n    border-bottom: 1px solid #0B314E;\n    padding: 3px 5px;\n}\n\n.log-manager-logs td {\n    white-space: nowrap;\n    overflow: hidden;\n}\n\n.log-manager-logs .nx-time {\n    width: 150px;\n}\n\n.log-manager-logs .nx-type {\n    width: 80px;\n}\n\n.log-manager-logs .nx-pname {\n    width: 400px;\n}\n\n.log-manager-logs .nx-pteam,\n.log-manager-logs .nx-agteam {\n    width: 38px;\n}\n\n.log-manager-logs .nx-agname {\n    width: 100px;\n}\n\n.log-manager-logs tr.enl,\n.log-manager-logs td.enl {\n    color: #03FE03 !important;\n}\n\n.log-manager-logs tr.res,\n.log-manager-logs td.res {\n    color: #00C5FF !important;\n}\n\n.log-manager-logs tr.enl {\n    background-color: #017F01;\n}\n\n.log-manager-logs tr.res {\n    background-color: #005684;\n}\n\n.log-manager-filters {\n}\n\n.log-manager-filter-row {\n}\n\n.log-manager-filter {\n    float: left;\n    width: 32%;\n    height: 26px;\n}\n\n.log-manager-filter label {\n    width: 35%;\n    float: left;\n    padding-top: 6px;\n    font-size: 14px;\n    font-weight: bold;\n}\n\n.log-manager-filter div.filter-container {\n    width: 65%;\n    float: left;\n}\n"));
 document.head.appendChild(style);
+// END CSS
+// BEGIN HTML Template
+var logFilterTemplate = document.createElement('script');
+logFilterTemplate.id = 'noxi-log-filter-template';
+logFilterTemplate.type = 'text/template';
+logFilterTemplate.appendChild(document.createTextNode("\n<div class=\"log-manager-filters\">\n    <div class=\"log-manager-filter-row\">\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-type\">Type</label>\n            <div class=\"filter-container\">\n                <select id=\"log-manager-type\">\n                    <option value=\"\">ALL</option>\n                    <option value=\"1\">Destroy resonator</option>\n                    <option value=\"2\">Destroy link</option>\n                    <option value=\"3\">Destroy field</option>\n                    <option value=\"4\">Capture portal</option>\n                    <option value=\"5\">Deploy resonator</option>\n                    <option value=\"6\">Create link</option>\n                    <option value=\"7\">Create field</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-pname\">Portal Name</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-pname\" placeholder=\"Portal name\"/>\n            </div>\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-dateFrom\">Date From</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-dateFrom\" placeholder=\"2015-01-01 00:00:00\" pattern=\"\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\">\n            </div>\n        </div>\n    </div>\n    <div class=\"log-manager-filter-row\">\n        <div class=\"log-manager-filter\">\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-agname\">Agent Name</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-agname\" placeholder=\"Agent name\">\n            </div>\n        </div>\n        <div class=\"log-manager-filter\">\n            <label for=\"log-manager-dateTo\">Date To</label>\n            <div class=\"filter-container\">\n                <input type=\"text\" id=\"log-manager-dateTo\" placeholder=\"2015-01-01 00:00:00\" pattern=\"\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\"/>\n            </div>\n        </div>\n    </div>\n</div>\n"));
+document.body.appendChild(logFilterTemplate);
+var logTableTemplate = document.createElement('script');
+logTableTemplate.id = 'noxi-log-table-template';
+logTableTemplate.type = 'text/template';
+logTableTemplate.appendChild(document.createTextNode("\n<table class=\"log-manager-logs\">\n    <thead>\n    <tr>\n        <th class=\"nx-time\">Time</th>\n        <th class=\"nx-type\">Type</th>\n        <th class=\"nx-pname\">Portal Name</th>\n        <th class=\"nx-pteam\">Portal Team</th>\n        <th class=\"nx-agname\">Player Name</th>\n        <th class=\"nx-agteam\">Player Team</th>\n    </tr>\n    </thead>\n    <tbody>\n    </tbody>\n</table>\n"));
+document.body.appendChild(logTableTemplate);
+var logRowTable = document.createElement('script');
+logRowTable.id = 'noxi-log-row-template';
+logRowTable.type = 'text/template';
+logRowTable.appendChild(document.createTextNode("\n<tr class=\"log-manager-row\" style=\"display: none;\">\n    <td class=\"nx-time\"></td>\n    <td class=\"nx-type\"></td>\n    <td class=\"nx-pname\">\n        <a class=\"nx-plink\"></a>\n    </td>\n    <td class=\"nx-pteam\"></td>\n    <td class=\"nx-agname\"></td>\n    <td class=\"nx-agteam\"></td>\n</tr>\n"));
+document.body.appendChild(logRowTable);
+// END HTML Template
