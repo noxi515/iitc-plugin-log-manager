@@ -1,9 +1,3 @@
-///<reference path="./typings/es6-extends.d.ts" />
-///<reference path="./typings/es6-promise.d.ts" />
-///<reference path="./typings/greasemonkey.d.ts" />
-///<reference path="./typings/iitc.d.ts" />
-///<reference path="./typings/jquery.d.ts" />
-///<reference path="./interfaces.d.ts" />
 // ==UserScript==
 // @id             iitc-plugin-log-manager@noxi515
 // @name           IITC plugin: LogManager
@@ -272,10 +266,10 @@ function wrapper(plugin_info) {
             this.$inputs = this.$filters.find('input:text, select');
             this.$filters
                 .on('keyup', 'input:text', function (ev) {
-                if (ev.keyCode !== 13)
-                    return;
-                _this.onFilterChanged();
-            })
+                    if (ev.keyCode !== 13)
+                        return;
+                    _this.onFilterChanged();
+                })
                 .on('change', 'select', function (ev) { return _this.onFilterChanged(); });
         }
         LogManagerDialogImpl.prototype.setOnFilterValuesChangeListener = function (listener) {
@@ -420,7 +414,7 @@ function wrapper(plugin_info) {
             var _this = this;
             return this.getCount(indexName, range)
                 .then(function (count) { return _this.fetch(indexName, count > limit ? limit : count, range)
-                .then(function (logs) { return Promise.resolve({ "count": count, "values": logs }); }); });
+                    .then(function (logs) { return Promise.resolve({ "count": count, "values": logs }); }); });
         };
         LogDB.prototype.clearAll = function () {
             this.getWritableStore().clear();

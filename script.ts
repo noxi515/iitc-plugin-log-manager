@@ -11,8 +11,10 @@
 // @name           IITC plugin: LogManager
 // @category       Controls
 // @version        0.1
-// @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
+// @namespace      http://git.noxi.biz/ingress/iitc-log-manager
 // @description    ＼( 'ω')／
+// @updateURL      http://git.noxi.biz/ingress/iitc-log-manager/raw/master/log-manager.meta.js
+// @downloadURL    http://git.noxi.biz/ingress/iitc-log-manager/raw/master/log-manager.user.js
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
