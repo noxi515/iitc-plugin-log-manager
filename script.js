@@ -1,8 +1,9 @@
+///<reference path="./typings/es6-promise/es6-promise.d.ts" />
+///<reference path="./typings/greasemonkey/greasemonkey.d.ts" />
+///<reference path="./typings/jquery/jquery.d.ts" />
+///<reference path="./typings/jqueryui/jqueryui.d.ts" />
 ///<reference path="./typings/es6-extends.d.ts" />
-///<reference path="./typings/es6-promise.d.ts" />
-///<reference path="./typings/greasemonkey.d.ts" />
 ///<reference path="./typings/iitc.d.ts" />
-///<reference path="./typings/jquery.d.ts" />
 ///<reference path="./interfaces.d.ts" />
 // ==UserScript==
 // @id             iitc-plugin-log-manager@noxi515

@@ -1,7 +1,7 @@
-///<reference path="./typings/es6-promise.d.ts" />
-///<reference path="./typings/greasemonkey.d.ts" />
+///<reference path="./typings/es6-promise/es6-promise.d.ts" />
+///<reference path="./typings/greasemonkey/greasemonkey.d.ts" />
+///<reference path="./typings/jquery/jquery.d.ts" />
 ///<reference path="./typings/iitc.d.ts" />
-///<reference path="./typings/jquery.d.ts" />
 
 interface GMPluginInfo {
 }
