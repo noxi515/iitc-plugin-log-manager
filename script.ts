@@ -226,8 +226,11 @@ function wrapper(plugin_info: GMPluginInfo) {
             let logs: Array<Log> = [];
 
             result.forEach(chat => {
-                    let time = new Date(chat[1]);
                     let detail: ChatDetail = chat[2].plext;
+                    if (detail.plextType != 'SYSTEM_BROADCAST')
+                        return;
+
+                    let time = new Date(chat[1]);
                     let player: Player = LogManagerImpl.findFromMarkup(detail.markup, "PLAYER");
                     let text: PlainText = LogManagerImpl.findFromMarkup(detail.markup, "TEXT");
                     let portal: PortalInfo = LogManagerImpl.findFromMarkup(detail.markup, "PORTAL");
