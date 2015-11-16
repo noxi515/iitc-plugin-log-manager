@@ -211,8 +211,10 @@ function wrapper(plugin_info) {
             var result = data.result;
             var logs = [];
             result.forEach(function (chat) {
-                var time = new Date(chat[1]);
                 var detail = chat[2].plext;
+                if (detail.plextType != 'SYSTEM_BROADCAST')
+                    return;
+                var time = new Date(chat[1]);
                 var player = LogManagerImpl.findFromMarkup(detail.markup, "PLAYER");
                 var text = LogManagerImpl.findFromMarkup(detail.markup, "TEXT");
                 var portal = LogManagerImpl.findFromMarkup(detail.markup, "PORTAL");
