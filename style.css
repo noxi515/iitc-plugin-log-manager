@@ -81,3 +81,26 @@
     width: 65%;
     float: left;
 }
+
+/* Log manager config */
+#dialog-log-manager-config {
+    max-width: 300px !important;
+}
+
+#log-manager-config-dialog-body a {
+    display: block;
+    color: #ffce00;
+    border: 1px solid #ffce00;
+    padding: 3px 0;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+    background: rgba(8, 48, 78, .9);
+}
+
+#log-manager-config-dialog-body a.disabled,
+#log-manager-config-dialog-body a.disabled:hover {
+    color: #666;
+    border-color: #666;
+    text-decoration: none;
+}
