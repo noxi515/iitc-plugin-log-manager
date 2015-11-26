@@ -41,6 +41,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         TYPE_CREATE_FIELD: 7,
 
         instance: null,
+        configDialog: null,
 
         convertTeam: (text: string): number => text === 'RESISTANCE' ? consts.TEAM_RES : consts.TEAM_ENL,
         convertType: (text: string): number => {
@@ -135,10 +136,11 @@ function wrapper(plugin_info: GMPluginInfo) {
                 };
             }
 
-            consts.instance = this;
-            _window.plugin.logManager = consts;
-
             this.db = new LogDB();
+
+            consts.instance = this;
+            consts.configDialog = new LogManagerConfigDialogImpl(_window, this.db);
+            _window.plugin.logManager = consts;
         }
 
         private initUI() {
@@ -156,7 +158,9 @@ function wrapper(plugin_info: GMPluginInfo) {
                 this.onDialogOpen(target);
             });
 
-            $('#toolbox').append(`<a id="toolbox-show-logs-popup" title="Display a public chat log view [w]" accesskey="w">Logs</a>`);
+            $('#toolbox')
+                .append(`<a id="toolbox-show-logs-popup" title="Display a public chat log view [w]" accesskey="w">Logs</a>`)
+                .append(`<a id="toolbox-show-log-config-popup" title="Display LogManager configs">Logs cfg</a>`);
             $('#toolbox-show-logs-popup').on('click', () => {
                 // dialog exists
                 if ($('#dialog-log-manager').length > 0)
@@ -171,6 +175,9 @@ function wrapper(plugin_info: GMPluginInfo) {
                         this.dialog = null;
                     }
                 });
+            });
+            $('#toolbox-show-log-config-popup').on('click', () => {
+                consts.configDialog.show();
             });
         }
 
@@ -491,8 +498,12 @@ function wrapper(plugin_info: GMPluginInfo) {
                                           .then(logs => Promise.resolve({"count": count, "values": logs})));
         }
 
-        public clearAll() {
-            this.getWritableStore().clear();
+        public clearAll(): Promise<any> {
+            return new Promise((resolve: () => any, reject: () => any) => {
+                let req = this.getWritableStore().clear();
+                req.onsuccess = () => resolve();
+                req.onerror = () => reject();
+            });
         }
 
         private getCount(indexName: string, range: IDBKeyRange = null): Promise<number> {
@@ -534,6 +545,65 @@ function wrapper(plugin_info: GMPluginInfo) {
         private getReadableStore(): DBObjectStore<Log> {
             return this.db.transaction(['logs'], 'readonly').objectStore('logs');
         }
+
+    }
+
+    class LogManagerConfigDialogImpl implements LogManagerConfigDialog {
+
+        private initialized: boolean = false;
+
+        constructor(private _window: PluginWindow, private db: LogDB) {
+        }
+
+
+        public show(): void {
+            if (!this.initialized) {
+                this.init();
+                this.initialized = true;
+            }
+
+            var $dialog = $('#dialog-log-manager-config');
+            if ($dialog.length > 0 && $dialog.dialog('isOpen')) {
+                $dialog.dialog('moveToTop');
+                return;
+            }
+
+            this._window.dialog({
+                "id": 'log-manager-config',
+                "title": 'Log configs',
+                "width": 300,
+                "html": `
+<div id="log-manager-config-dialog-body">
+    <a id="delete-logs">Delete all logs</a>
+</div>`,
+                "closeCallback": () => {
+                }
+            });
+
+        }
+
+        private init(): void {
+            // Add event handlers
+            $(document.body).on('dialogopen', (ev: Event) => {
+                let target = <HTMLElement>ev.target;
+                if (target.id != 'dialog-log-manager-config')
+                    return;
+
+                this.attachEventHandlers();
+            });
+        }
+
+        private attachEventHandlers(): void {
+            let $body = $('#log-manager-config-dialog-body');
+            $body.on('click', '#delete-logs', () => {
+                this.db.clearAll()
+                    .then(() => {
+                        alert(`Delete logs complete.`);
+                        window.location.reload();
+                    });
+            });
+        }
+
 
     }
 
@@ -641,6 +711,29 @@ style.appendChild(document.createTextNode(`
 .log-manager-filter div.filter-container {
     width: 65%;
     float: left;
+}
+
+/* Log manager config */
+#dialog-log-manager-config {
+    max-width: 300px !important;
+}
+
+#log-manager-config-dialog-body a {
+    display: block;
+    color: #ffce00;
+    border: 1px solid #ffce00;
+    padding: 3px 0;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+    background: rgba(8, 48, 78, .9);
+}
+
+#log-manager-config-dialog-body a.disabled,
+#log-manager-config-dialog-body a.disabled:hover {
+    color: #666;
+    border-color: #666;
+    text-decoration: none;
 }
 `));
 document.head.appendChild(style);

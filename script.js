@@ -35,6 +35,7 @@ function wrapper(plugin_info) {
         TYPE_CREATE_LINK: 6,
         TYPE_CREATE_FIELD: 7,
         instance: null,
+        configDialog: null,
         convertTeam: function (text) { return text === 'RESISTANCE' ? consts.TEAM_RES : consts.TEAM_ENL; },
         convertType: function (text) {
             if (!text) {
@@ -121,9 +122,10 @@ function wrapper(plugin_info) {
                 _window.plugin = function () {
                 };
             }
-            consts.instance = this;
-            _window.plugin.logManager = consts;
             this.db = new LogDB();
+            consts.instance = this;
+            consts.configDialog = new LogManagerConfigDialogImpl(_window, this.db);
+            _window.plugin.logManager = consts;
         }
         LogManagerImpl.findFromMarkup = function (array, type) {
             for (var i = 0; i < array.length; i++) {
@@ -146,7 +148,9 @@ function wrapper(plugin_info) {
                     return;
                 _this.onDialogOpen(target);
             });
-            $('#toolbox').append("<a id=\"toolbox-show-logs-popup\" title=\"Display a public chat log view [w]\" accesskey=\"w\">Logs</a>");
+            $('#toolbox')
+                .append("<a id=\"toolbox-show-logs-popup\" title=\"Display a public chat log view [w]\" accesskey=\"w\">Logs</a>")
+                .append("<a id=\"toolbox-show-log-config-popup\" title=\"Display LogManager configs\">Logs cfg</a>");
             $('#toolbox-show-logs-popup').on('click', function () {
                 // dialog exists
                 if ($('#dialog-log-manager').length > 0)
@@ -160,6 +164,9 @@ function wrapper(plugin_info) {
                         _this.dialog = null;
                     }
                 });
+            });
+            $('#toolbox-show-log-config-popup').on('click', function () {
+                consts.configDialog.show();
             });
         };
         LogManagerImpl.prototype.onDialogOpen = function (target) {
@@ -422,7 +429,12 @@ function wrapper(plugin_info) {
                 .then(function (logs) { return Promise.resolve({ "count": count, "values": logs }); }); });
         };
         LogDB.prototype.clearAll = function () {
-            this.getWritableStore().clear();
+            var _this = this;
+            return new Promise(function (resolve, reject) {
+                var req = _this.getWritableStore().clear();
+                req.onsuccess = function () { return resolve(); };
+                req.onerror = function () { return reject(); };
+            });
         };
         LogDB.prototype.getCount = function (indexName, range) {
             var _this = this;
@@ -468,6 +480,54 @@ function wrapper(plugin_info) {
         };
         return LogDB;
     })();
+    var LogManagerConfigDialogImpl = (function () {
+        function LogManagerConfigDialogImpl(_window, db) {
+            this._window = _window;
+            this.db = db;
+            this.initialized = false;
+        }
+        LogManagerConfigDialogImpl.prototype.show = function () {
+            if (!this.initialized) {
+                this.init();
+                this.initialized = true;
+            }
+            var $dialog = $('#dialog-log-manager-config');
+            if ($dialog.length > 0 && $dialog.dialog('isOpen')) {
+                $dialog.dialog('moveToTop');
+                return;
+            }
+            this._window.dialog({
+                "id": 'log-manager-config',
+                "title": 'Log configs',
+                "width": 300,
+                "html": "\n<div id=\"log-manager-config-dialog-body\">\n    <a id=\"delete-logs\">Delete all logs</a>\n</div>",
+                "closeCallback": function () {
+                }
+            });
+        };
+        LogManagerConfigDialogImpl.prototype.init = function () {
+            var _this = this;
+            // Add event handlers
+            $(document.body).on('dialogopen', function (ev) {
+                var target = ev.target;
+                if (target.id != 'dialog-log-manager-config')
+                    return;
+                _this.attachEventHandlers();
+            });
+        };
+        LogManagerConfigDialogImpl.prototype.attachEventHandlers = function () {
+            var _this = this;
+            var $body = $('#log-manager-config-dialog-body');
+            $body.on('click', '#delete-logs', function () {
+                _this.db.clearAll()
+                    .then(function () {
+                    alert("Delete logs complete.");
+                    window.location.reload();
+                });
+            });
+        };
+        return LogManagerConfigDialogImpl;
+    })();
     new LogManagerImpl(window, plugin_info).exec();
 }
 // inject code into site context
@@ -486,7 +546,7 @@ script.appendChild(document.createTextNode("(" + wrapper + ")(" + JSON.stringify
 var style = document.createElement('style');
 style.id = 'noxi-iitc-log-manager-css';
 style.type = 'text/css';
-style.appendChild(document.createTextNode("\n#dialog-log-manager {\n    max-width: 900px !important;\n}\n\n.log-manager-logs {\n    table-layout: fixed;\n    width: 876px;\n}\n\n.log-manager-logs th,\n.log-manager-logs td {\n    border-bottom: 1px solid #0B314E;\n    padding: 3px 5px;\n}\n\n.log-manager-logs td {\n    white-space: nowrap;\n    overflow: hidden;\n}\n\n.log-manager-logs .nx-time {\n    width: 150px;\n}\n\n.log-manager-logs .nx-type {\n    width: 80px;\n}\n\n.log-manager-logs .nx-pname {\n    width: 400px;\n}\n\n.log-manager-logs .nx-pteam,\n.log-manager-logs .nx-agteam {\n    width: 38px;\n}\n\n.log-manager-logs .nx-agname {\n    width: 100px;\n}\n\n.log-manager-logs tr.enl,\n.log-manager-logs td.enl {\n    color: #03FE03 !important;\n}\n\n.log-manager-logs tr.res,\n.log-manager-logs td.res {\n    color: #00C5FF !important;\n}\n\n.log-manager-logs tr.enl {\n    background-color: #017F01;\n}\n\n.log-manager-logs tr.res {\n    background-color: #005684;\n}\n\n.log-manager-filters {\n}\n\n.log-manager-filter-row {\n}\n\n.log-manager-filter {\n    float: left;\n    width: 32%;\n    height: 26px;\n}\n\n.log-manager-filter label {\n    width: 35%;\n    float: left;\n    padding-top: 6px;\n    font-size: 14px;\n    font-weight: bold;\n}\n\n.log-manager-filter div.filter-container {\n    width: 65%;\n    float: left;\n}\n"));
+style.appendChild(document.createTextNode("\n#dialog-log-manager {\n    max-width: 900px !important;\n}\n\n.log-manager-logs {\n    table-layout: fixed;\n    width: 876px;\n}\n\n.log-manager-logs th,\n.log-manager-logs td {\n    border-bottom: 1px solid #0B314E;\n    padding: 3px 5px;\n}\n\n.log-manager-logs td {\n    white-space: nowrap;\n    overflow: hidden;\n}\n\n.log-manager-logs .nx-time {\n    width: 150px;\n}\n\n.log-manager-logs .nx-type {\n    width: 80px;\n}\n\n.log-manager-logs .nx-pname {\n    width: 400px;\n}\n\n.log-manager-logs .nx-pteam,\n.log-manager-logs .nx-agteam {\n    width: 38px;\n}\n\n.log-manager-logs .nx-agname {\n    width: 100px;\n}\n\n.log-manager-logs tr.enl,\n.log-manager-logs td.enl {\n    color: #03FE03 !important;\n}\n\n.log-manager-logs tr.res,\n.log-manager-logs td.res {\n    color: #00C5FF !important;\n}\n\n.log-manager-logs tr.enl {\n    background-color: #017F01;\n}\n\n.log-manager-logs tr.res {\n    background-color: #005684;\n}\n\n.log-manager-filters {\n}\n\n.log-manager-filter-row {\n}\n\n.log-manager-filter {\n    float: left;\n    width: 32%;\n    height: 26px;\n}\n\n.log-manager-filter label {\n    width: 35%;\n    float: left;\n    padding-top: 6px;\n    font-size: 14px;\n    font-weight: bold;\n}\n\n.log-manager-filter div.filter-container {\n    width: 65%;\n    float: left;\n}\n\n/* Log manager config */\n#dialog-log-manager-config {\n    max-width: 300px !important;\n}\n\n#log-manager-config-dialog-body a {\n    display: block;\n    color: #ffce00;\n    border: 1px solid #ffce00;\n    padding: 3px 0;\n    margin: 10px auto;\n    width: 80%;\n    text-align: center;\n    background: rgba(8, 48, 78, .9);\n}\n\n#log-manager-config-dialog-body a.disabled,\n#log-manager-config-dialog-body a.disabled:hover {\n    color: #666;\n    border-color: #666;\n    text-decoration: none;\n}\n"));
 document.head.appendChild(style);
 // END CSS
 // BEGIN HTML Template
