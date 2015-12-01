@@ -279,6 +279,20 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     class LogManagerDialogImpl implements LogManagerDialog {
 
+        private static parseDate(str: string): Date {
+            if (!str)
+                return null;
+
+            let year = parseInt(str.substr(0, 4));
+            let month = parseInt(str.substr(5, 2)) - 1;
+            let day = parseInt(str.substr(8, 2));
+            let hour = parseInt(str.substr(11, 2));
+            let minute = parseInt(str.substr(14, 2));
+            let second = parseInt(str.substr(17, 2));
+
+            return new Date(year, month, day, hour, minute, second, 0);
+        }
+
         private $title: JQuery;
         private $filters: JQuery;
         private $table: JQuery;
@@ -360,11 +374,11 @@ function wrapper(plugin_info: GMPluginInfo) {
                         break;
 
                     case 'dateFrom':
-                        newValues.dateFrom = value ? new Date(value.replace(/\s/, 'T')) : null;
+                        newValues.dateFrom = value ? LogManagerDialogImpl.parseDate(value) : null;
                         break;
 
                     case 'dateTo':
-                        newValues.dateTo = value ? new Date(value.replace(/\s/, 'T')) : null;
+                        newValues.dateTo = value ? LogManagerDialogImpl.parseDate(value) : null;
                         break;
                 }
             }
