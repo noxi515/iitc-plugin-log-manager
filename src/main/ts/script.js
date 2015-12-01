@@ -216,6 +216,7 @@ function wrapper(plugin_info) {
                 .catch(function (e) { return console.error("Fetch Error: " + e); });
         };
         LogManagerImpl.prototype.onPublishChatDataAvailable = function (data) {
+            var _this = this;
             var result = data.result;
             var logs = [];
             result.forEach(function (chat) {
@@ -238,8 +239,8 @@ function wrapper(plugin_info) {
                     "portalTeam": consts.convertTeam(portal.team)
                 };
                 logs.push(log);
+                _this.db.add(log);
             });
-            this.db.addAll(logs);
             console.info(logs.length + " chat logs inserted.");
         };
         LogManagerImpl.prototype.exec = function () {
@@ -413,12 +414,28 @@ function wrapper(plugin_info) {
             };
         }
         LogDB.prototype.add = function (log) {
-            this.getWritableStore().add(log);
+            var req = this.getWritableStore().add(log);
+            req.onsuccess = function () { return console.debug('insert success'); };
+            req.onerror = function () {
+                try {
+                    console.warn("insert error: " + this.error.message);
+                }
+                catch (e) {
+                }
+            };
         };
         LogDB.prototype.addAll = function (logs) {
             var store = this.getWritableStore();
             for (var i = 0; i < logs.length; i++) {
-                store.add(logs[i]);
+                var req = store.add(logs[i]);
+                req.onsuccess = function () { return console.debug('insert success'); };
+                req.onerror = function () {
+                    try {
+                        console.warn("insert error: " + this.error.message);
+                    }
+                    catch (e) {
+                    }
+                };
             }
         };
         LogDB.prototype.getAll = function (limit) {
