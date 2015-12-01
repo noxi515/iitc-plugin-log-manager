@@ -2,7 +2,7 @@
 // @id             iitc-plugin-log-manager@noxi515
 // @name           IITC plugin: LogManager
 // @category       Controls
-// @version        0.2.1
+// @version        0.2.2
 // @namespace      http://git.noxi.biz/ingress/iitc-log-manager
 // @description    ＼( 'ω')／
 // @updateURL      https://git.noxi.biz/ingress/iitc-log-manager/raw/master/scripts/log-manager.meta.js
