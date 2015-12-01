@@ -11,7 +11,7 @@
 // @id             iitc-plugin-log-manager@noxi515
 // @name           IITC plugin: LogManager
 // @category       Controls
-// @version        0.2.0
+// @version        0.2.1
 // @namespace      http://git.noxi.biz/ingress/iitc-log-manager
 // @description    ＼( 'ω')／
 // @updateURL      https://git.noxi.biz/ingress/iitc-log-manager/raw/master/scripts/log-manager.meta.js
@@ -256,10 +256,10 @@ function wrapper(plugin_info: GMPluginInfo) {
                     };
 
                     logs.push(log);
+                    this.db.add(log);
                 }
             );
 
-            this.db.addAll(logs);
             console.info(`${logs.length} chat logs inserted.`);
         }
 
@@ -481,13 +481,27 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         public add(log: Log) {
-            this.getWritableStore().add(log);
+            let req = this.getWritableStore().add(log);
+            req.onsuccess = () => console.debug('insert success');
+            req.onerror = function () {
+                try {
+                    console.warn(`insert error: ${this.error.message}`);
+                } catch (e) {
+                }
+            };
         }
 
         public addAll(logs: Array<Log>) {
             let store = this.getWritableStore();
             for (var i = 0; i < logs.length; i++) {
-                store.add(logs[i]);
+                let req = store.add(logs[i]);
+                req.onsuccess = () => console.debug('insert success');
+                req.onerror = function () {
+                    try {
+                        console.warn(`insert error: ${this.error.message}`);
+                    } catch (e) {
+                    }
+                };
             }
         }
 
