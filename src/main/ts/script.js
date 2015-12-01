@@ -24,6 +24,7 @@ function wrapper(plugin_info) {
     'use strict';
     var consts = {
         ROW_LIMIT: 1000,
+        TEAM_NEU: -1,
         TEAM_ENL: 0,
         TEAM_RES: 1,
         TYPE_NONE: 0,
@@ -36,7 +37,9 @@ function wrapper(plugin_info) {
         TYPE_CREATE_FIELD: 7,
         instance: null,
         configDialog: null,
-        convertTeam: function (text) { return text === 'RESISTANCE' ? consts.TEAM_RES : consts.TEAM_ENL; },
+        convertTeam: function (text) {
+            return text === 'RESISTANCE' ? consts.TEAM_RES : text === 'ENLIGHTENED' ? consts.TEAM_ENL : consts.TEAM_NEU;
+        },
         convertType: function (text) {
             if (!text) {
                 return consts.TYPE_NONE;
@@ -66,8 +69,12 @@ function wrapper(plugin_info) {
                 return consts.TYPE_NONE;
             }
         },
-        teamToCssClass: function (team) { return team === 0 ? 'enl' : 'res'; },
-        teamToLabel: function (team) { return team === 0 ? 'ENL' : 'RES'; },
+        teamToCssClass: function (team) {
+            return team === consts.TEAM_ENL ? 'enl' : team === consts.TEAM_RES ? 'res' : 'neu';
+        },
+        teamToLabel: function (team) {
+            return team === consts.TEAM_ENL ? 'ENL' : team === consts.TEAM_RES ? 'RES' : 'NEU';
+        },
         typeToLabel: function (type) {
             switch (type) {
                 case consts.TYPE_NONE:
@@ -371,6 +378,7 @@ function wrapper(plugin_info) {
             configurable: true
         });
         LogRowWrapper.updateTeamCssClass = function (element, newTeam) {
+            element.classList.remove('neu');
             element.classList.remove('enl');
             element.classList.remove('res');
             element.classList.add(consts.teamToCssClass(newTeam));
@@ -565,7 +573,7 @@ script.appendChild(document.createTextNode("(" + wrapper + ")(" + JSON.stringify
 var style = document.createElement('style');
 style.id = 'noxi-iitc-log-manager-css';
 style.type = 'text/css';
-style.appendChild(document.createTextNode("\n#dialog-log-manager {\n    max-width: 900px !important;\n}\n\n.log-manager-logs {\n    table-layout: fixed;\n    width: 876px;\n}\n\n.log-manager-logs th,\n.log-manager-logs td {\n    border-bottom: 1px solid #0B314E;\n    padding: 3px 5px;\n}\n\n.log-manager-logs td {\n    white-space: nowrap;\n    overflow: hidden;\n}\n\n.log-manager-logs .nx-time {\n    width: 150px;\n}\n\n.log-manager-logs .nx-type {\n    width: 80px;\n}\n\n.log-manager-logs .nx-pname {\n    width: 400px;\n}\n\n.log-manager-logs .nx-pteam,\n.log-manager-logs .nx-agteam {\n    width: 38px;\n}\n\n.log-manager-logs .nx-agname {\n    width: 100px;\n}\n\n.log-manager-logs tr.enl,\n.log-manager-logs td.enl {\n    color: #03FE03 !important;\n}\n\n.log-manager-logs tr.res,\n.log-manager-logs td.res {\n    color: #00C5FF !important;\n}\n\n.log-manager-logs tr.enl {\n    background-color: #017F01;\n}\n\n.log-manager-logs tr.res {\n    background-color: #005684;\n}\n\n.log-manager-filters {\n}\n\n.log-manager-filter-row {\n}\n\n.log-manager-filter {\n    float: left;\n    width: 32%;\n    height: 26px;\n}\n\n.log-manager-filter label {\n    width: 35%;\n    float: left;\n    padding-top: 6px;\n    font-size: 14px;\n    font-weight: bold;\n}\n\n.log-manager-filter div.filter-container {\n    width: 65%;\n    float: left;\n}\n\n/* Log manager config */\n#dialog-log-manager-config {\n    max-width: 300px !important;\n}\n\n#log-manager-config-dialog-body a {\n    display: block;\n    color: #ffce00;\n    border: 1px solid #ffce00;\n    padding: 3px 0;\n    margin: 10px auto;\n    width: 80%;\n    text-align: center;\n    background: rgba(8, 48, 78, .9);\n}\n\n#log-manager-config-dialog-body a.disabled,\n#log-manager-config-dialog-body a.disabled:hover {\n    color: #666;\n    border-color: #666;\n    text-decoration: none;\n}\n"));
+style.appendChild(document.createTextNode("\n#dialog-log-manager {\n    max-width: 900px !important;\n}\n\n.log-manager-logs {\n    table-layout: fixed;\n    width: 876px;\n}\n\n.log-manager-logs th,\n.log-manager-logs td {\n    border-bottom: 1px solid #0B314E;\n    padding: 3px 5px;\n}\n\n.log-manager-logs td {\n    white-space: nowrap;\n    overflow: hidden;\n}\n\n.log-manager-logs .nx-time {\n    width: 150px;\n}\n\n.log-manager-logs .nx-type {\n    width: 80px;\n}\n\n.log-manager-logs .nx-pname {\n    width: 400px;\n}\n\n.log-manager-logs .nx-pteam,\n.log-manager-logs .nx-agteam {\n    width: 38px;\n}\n\n.log-manager-logs .nx-agname {\n    width: 100px;\n}\n\n.log-manager-logs tr.neu,\n.log-manager-logs td.neu {\n    color: #ffffff !important;\n}\n\n.log-manager-logs tr.enl,\n.log-manager-logs td.enl {\n    color: #03FE03 !important;\n}\n\n.log-manager-logs tr.enl {\n    background-color: #017F01;\n}\n\n.log-manager-logs tr.res,\n.log-manager-logs td.res {\n    color: #00C5FF !important;\n}\n\n.log-manager-logs tr.res {\n    background-color: #005684;\n}\n\n.log-manager-filters {\n}\n\n.log-manager-filter-row {\n}\n\n.log-manager-filter {\n    float: left;\n    width: 32%;\n    height: 26px;\n}\n\n.log-manager-filter label {\n    width: 35%;\n    float: left;\n    padding-top: 6px;\n    font-size: 14px;\n    font-weight: bold;\n}\n\n.log-manager-filter div.filter-container {\n    width: 65%;\n    float: left;\n}\n\n/* Log manager config */\n#dialog-log-manager-config {\n    max-width: 300px !important;\n}\n\n#log-manager-config-dialog-body a {\n    display: block;\n    color: #ffce00;\n    border: 1px solid #ffce00;\n    padding: 3px 0;\n    margin: 10px auto;\n    width: 80%;\n    text-align: center;\n    background: rgba(8, 48, 78, .9);\n}\n\n#log-manager-config-dialog-body a.disabled,\n#log-manager-config-dialog-body a.disabled:hover {\n    color: #666;\n    border-color: #666;\n    text-decoration: none;\n}\n"));
 document.head.appendChild(style);
 // END CSS
 // BEGIN HTML Template

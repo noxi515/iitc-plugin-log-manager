@@ -18,6 +18,7 @@ interface PluginHolder extends Function {
 interface LogManagerConstants {
     ROW_LIMIT: number;
 
+    TEAM_NEU: number;
     TEAM_ENL: number;
     TEAM_RES: number;
 
