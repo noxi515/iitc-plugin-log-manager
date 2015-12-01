@@ -39,18 +39,23 @@
     width: 100px;
 }
 
+.log-manager-logs tr.neu,
+.log-manager-logs td.neu {
+    color: #ffffff !important;
+}
+
 .log-manager-logs tr.enl,
 .log-manager-logs td.enl {
     color: #03FE03 !important;
 }
 
+.log-manager-logs tr.enl {
+    background-color: #017F01;
+}
+
 .log-manager-logs tr.res,
 .log-manager-logs td.res {
     color: #00C5FF !important;
-}
-
-.log-manager-logs tr.enl {
-    background-color: #017F01;
 }
 
 .log-manager-logs tr.res {
