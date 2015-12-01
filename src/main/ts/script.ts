@@ -1,8 +1,9 @@
-///<reference path="./typings/es6-extends.d.ts" />
-///<reference path="./typings/es6-promise.d.ts" />
-///<reference path="./typings/greasemonkey.d.ts" />
-///<reference path="./typings/iitc.d.ts" />
-///<reference path="./typings/jquery.d.ts" />
+///<reference path="../typings/es6-promise/es6-promise.d.ts" />
+///<reference path="../typings/greasemonkey/greasemonkey.d.ts" />
+///<reference path="../typings/jquery/jquery.d.ts" />
+///<reference path="../typings/jqueryui/jqueryui.d.ts" />
+///<reference path="../typings/es6-extends.d.ts" />
+///<reference path="../typings/iitc.d.ts" />
 ///<reference path="./interfaces.d.ts" />
 
 
@@ -10,9 +11,11 @@
 // @id             iitc-plugin-log-manager@noxi515
 // @name           IITC plugin: LogManager
 // @category       Controls
-// @version        0.1
-// @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
+// @version        0.2.0
+// @namespace      http://git.noxi.biz/ingress/iitc-log-manager
 // @description    ＼( 'ω')／
+// @updateURL      https://git.noxi.biz/ingress/iitc-log-manager/raw/master/scripts/log-manager.meta.js
+// @downloadURL    https://git.noxi.biz/ingress/iitc-log-manager/raw/master/scripts/log-manager.user.js
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
 // @match          https://www.ingress.com/intel*
@@ -38,6 +41,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         TYPE_CREATE_FIELD: 7,
 
         instance: null,
+        configDialog: null,
 
         convertTeam: (text: string): number => text === 'RESISTANCE' ? consts.TEAM_RES : consts.TEAM_ENL,
         convertType: (text: string): number => {
@@ -132,10 +136,11 @@ function wrapper(plugin_info: GMPluginInfo) {
                 };
             }
 
-            consts.instance = this;
-            _window.plugin.logManager = consts;
-
             this.db = new LogDB();
+
+            consts.instance = this;
+            consts.configDialog = new LogManagerConfigDialogImpl(_window, this.db);
+            _window.plugin.logManager = consts;
         }
 
         private initUI() {
@@ -153,7 +158,9 @@ function wrapper(plugin_info: GMPluginInfo) {
                 this.onDialogOpen(target);
             });
 
-            $('#toolbox').append(`<a id="toolbox-show-logs-popup" title="Display a public chat log view [w]" accesskey="w">Logs</a>`);
+            $('#toolbox')
+                .append(`<a id="toolbox-show-logs-popup" title="Display a public chat log view [w]" accesskey="w">Logs</a>`)
+                .append(`<a id="toolbox-show-log-config-popup" title="Display LogManager configs">Logs cfg</a>`);
             $('#toolbox-show-logs-popup').on('click', () => {
                 // dialog exists
                 if ($('#dialog-log-manager').length > 0)
@@ -168,6 +175,9 @@ function wrapper(plugin_info: GMPluginInfo) {
                         this.dialog = null;
                     }
                 });
+            });
+            $('#toolbox-show-log-config-popup').on('click', () => {
+                consts.configDialog.show();
             });
         }
 
@@ -224,8 +234,11 @@ function wrapper(plugin_info: GMPluginInfo) {
             let logs: Array<Log> = [];
 
             result.forEach(chat => {
-                    let time = new Date(chat[1]);
                     let detail: ChatDetail = chat[2].plext;
+                    if (detail.plextType != 'SYSTEM_BROADCAST')
+                        return;
+
+                    let time = new Date(chat[1]);
                     let player: Player = LogManagerImpl.findFromMarkup(detail.markup, "PLAYER");
                     let text: PlainText = LogManagerImpl.findFromMarkup(detail.markup, "TEXT");
                     let portal: PortalInfo = LogManagerImpl.findFromMarkup(detail.markup, "PORTAL");
@@ -266,86 +279,6 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     class LogManagerDialogImpl implements LogManagerDialog {
 
-        private static TABLE_FILTER_HTML = `
-<div class="log-manager-filters">
-    <div class="log-manager-filter-row">
-        <div class="log-manager-filter">
-            <label for="log-manager-type">Type</label>
-            <div class="filter-container">
-                <select id="log-manager-type">
-                    <option value="">ALL</option>
-                    <option value="1">Destroy resonator</option>
-                    <option value="2">Destroy link</option>
-                    <option value="3">Destroy field</option>
-                    <option value="4">Capture portal</option>
-                    <option value="5">Deploy resonator</option>
-                    <option value="6">Create link</option>
-                    <option value="7">Create field</option>
-                </select>
-            </div>
-        </div>
-        <div class="log-manager-filter">
-            <label for="log-manager-pname">Portal Name</label>
-            <div class="filter-container">
-                <input type="text" id="log-manager-pname" placeholder="Portal name"/>
-            </div>
-        </div>
-        <div class="log-manager-filter">
-            <label for="log-manager-dateFrom">Date From</label>
-            <div class="filter-container">
-                <input type="text" id="log-manager-dateFrom" placeholder="2015-01-01 00:00:00" pattern="\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}">
-            </div>
-        </div>
-    </div>
-    <div class="log-manager-filter-row">
-        <div class="log-manager-filter">
-        </div>
-        <div class="log-manager-filter">
-            <label for="log-manager-agname">Agent Name</label>
-            <div class="filter-container">
-                <input type="text" id="log-manager-agname" placeholder="Agent name">
-            </div>
-        </div>
-        <div class="log-manager-filter">
-            <label for="log-manager-dateTo">Date To</label>
-            <div class="filter-container">
-                <input type="text" id="log-manager-dateTo" placeholder="2015-01-01 00:00:00" pattern="\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}"/>
-            </div>
-        </div>
-    </div>
-</div>
-`;
-
-        private static LOG_TABLE_HTML = `
-<table class="log-manager-logs">
-    <thead>
-    <tr>
-        <th class="nx-time">Time</th>
-        <th class="nx-type">Type</th>
-        <th class="nx-pname">Portal Name</th>
-        <th class="nx-pteam">Portal Team</th>
-        <th class="nx-agname">Player Name</th>
-        <th class="nx-agteam">Player Team</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-`;
-
-        private static LOG_ROW_HTML = `
-<tr class="log-manager-row" style="display: none;">
-    <td class="nx-time"></td>
-    <td class="nx-type"></td>
-    <td class="nx-pname">
-        <a class="nx-plink"></a>
-    </td>
-    <td class="nx-pteam"></td>
-    <td class="nx-agname"></td>
-    <td class="nx-agteam"></td>
-</tr>
-`;
-
         private $title: JQuery;
         private $filters: JQuery;
         private $table: JQuery;
@@ -358,12 +291,13 @@ function wrapper(plugin_info: GMPluginInfo) {
 
         constructor(private $root: JQuery) {
             this.$title = $root.prev().find('.ui-dialog-title');
-            this.$filters = $(LogManagerDialogImpl.TABLE_FILTER_HTML);
-            this.$table = $(LogManagerDialogImpl.LOG_TABLE_HTML);
+            this.$filters = $($('#noxi-log-filter-template').html());
+            this.$table = $($('#noxi-log-table-template').html());
 
             let $tableBody = $(this.$table.find('tbody'));
+            let logRowTemplate = $('#noxi-log-row-template').html();
             for (var i = 0; i < 1000; i++) {
-                let $row = $(LogManagerDialogImpl.LOG_ROW_HTML);
+                let $row = $(logRowTemplate);
                 $tableBody.append($row);
                 this.wrappers[i] = new LogRowWrapper($row);
             }
@@ -567,8 +501,12 @@ function wrapper(plugin_info: GMPluginInfo) {
                                           .then(logs => Promise.resolve({"count": count, "values": logs})));
         }
 
-        public clearAll() {
-            this.getWritableStore().clear();
+        public clearAll(): Promise<any> {
+            return new Promise((resolve: () => any, reject: () => any) => {
+                let req = this.getWritableStore().clear();
+                req.onsuccess = () => resolve();
+                req.onerror = () => reject();
+            });
         }
 
         private getCount(indexName: string, range: IDBKeyRange = null): Promise<number> {
@@ -613,6 +551,65 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     }
 
+    class LogManagerConfigDialogImpl implements LogManagerConfigDialog {
+
+        private initialized: boolean = false;
+
+        constructor(private _window: PluginWindow, private db: LogDB) {
+        }
+
+
+        public show(): void {
+            if (!this.initialized) {
+                this.init();
+                this.initialized = true;
+            }
+
+            var $dialog = $('#dialog-log-manager-config');
+            if ($dialog.length > 0 && $dialog.dialog('isOpen')) {
+                $dialog.dialog('moveToTop');
+                return;
+            }
+
+            this._window.dialog({
+                "id": 'log-manager-config',
+                "title": 'Log configs',
+                "width": 300,
+                "html": `
+<div id="log-manager-config-dialog-body">
+    <a id="delete-logs">Delete all logs</a>
+</div>`,
+                "closeCallback": () => {
+                }
+            });
+
+        }
+
+        private init(): void {
+            // Add event handlers
+            $(document.body).on('dialogopen', (ev: Event) => {
+                let target = <HTMLElement>ev.target;
+                if (target.id != 'dialog-log-manager-config')
+                    return;
+
+                this.attachEventHandlers();
+            });
+        }
+
+        private attachEventHandlers(): void {
+            let $body = $('#log-manager-config-dialog-body');
+            $body.on('click', '#delete-logs', () => {
+                this.db.clearAll()
+                    .then(() => {
+                        alert(`Delete logs complete.`);
+                        window.location.reload();
+                    });
+            });
+        }
+
+
+    }
+
     new LogManagerImpl(<PluginWindow>window, plugin_info).exec();
 }
 
@@ -628,6 +625,8 @@ if (typeof GM_info !== 'undefined' && GM_info && GM_info.script) info.script = {
 script.appendChild(document.createTextNode(`(${wrapper})(${JSON.stringify(info)});`));
 (document.body || document.head || document.documentElement).appendChild(script);
 
+
+// BEGIN CSS
 
 let style = document.createElement('style');
 style.id = 'noxi-iitc-log-manager-css';
@@ -716,5 +715,127 @@ style.appendChild(document.createTextNode(`
     width: 65%;
     float: left;
 }
+
+/* Log manager config */
+#dialog-log-manager-config {
+    max-width: 300px !important;
+}
+
+#log-manager-config-dialog-body a {
+    display: block;
+    color: #ffce00;
+    border: 1px solid #ffce00;
+    padding: 3px 0;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+    background: rgba(8, 48, 78, .9);
+}
+
+#log-manager-config-dialog-body a.disabled,
+#log-manager-config-dialog-body a.disabled:hover {
+    color: #666;
+    border-color: #666;
+    text-decoration: none;
+}
 `));
 document.head.appendChild(style);
+
+// END CSS
+
+
+// BEGIN HTML Template
+
+let logFilterTemplate = <HTMLScriptElement>document.createElement('script');
+logFilterTemplate.id = 'noxi-log-filter-template';
+logFilterTemplate.type = 'text/template';
+logFilterTemplate.appendChild(document.createTextNode(`
+<div class="log-manager-filters">
+    <div class="log-manager-filter-row">
+        <div class="log-manager-filter">
+            <label for="log-manager-type">Type</label>
+            <div class="filter-container">
+                <select id="log-manager-type">
+                    <option value="">ALL</option>
+                    <option value="1">Destroy resonator</option>
+                    <option value="2">Destroy link</option>
+                    <option value="3">Destroy field</option>
+                    <option value="4">Capture portal</option>
+                    <option value="5">Deploy resonator</option>
+                    <option value="6">Create link</option>
+                    <option value="7">Create field</option>
+                </select>
+            </div>
+        </div>
+        <div class="log-manager-filter">
+            <label for="log-manager-pname">Portal Name</label>
+            <div class="filter-container">
+                <input type="text" id="log-manager-pname" placeholder="Portal name"/>
+            </div>
+        </div>
+        <div class="log-manager-filter">
+            <label for="log-manager-dateFrom">Date From</label>
+            <div class="filter-container">
+                <input type="text" id="log-manager-dateFrom" placeholder="2015-01-01 00:00:00" pattern="\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}">
+            </div>
+        </div>
+    </div>
+    <div class="log-manager-filter-row">
+        <div class="log-manager-filter">
+        </div>
+        <div class="log-manager-filter">
+            <label for="log-manager-agname">Agent Name</label>
+            <div class="filter-container">
+                <input type="text" id="log-manager-agname" placeholder="Agent name">
+            </div>
+        </div>
+        <div class="log-manager-filter">
+            <label for="log-manager-dateTo">Date To</label>
+            <div class="filter-container">
+                <input type="text" id="log-manager-dateTo" placeholder="2015-01-01 00:00:00" pattern="\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}"/>
+            </div>
+        </div>
+    </div>
+</div>
+`));
+document.body.appendChild(logFilterTemplate);
+
+let logTableTemplate = <HTMLScriptElement>document.createElement('script');
+logTableTemplate.id = 'noxi-log-table-template';
+logTableTemplate.type = 'text/template';
+logTableTemplate.appendChild(document.createTextNode(`
+<table class="log-manager-logs">
+    <thead>
+    <tr>
+        <th class="nx-time">Time</th>
+        <th class="nx-type">Type</th>
+        <th class="nx-pname">Portal Name</th>
+        <th class="nx-pteam">Portal Team</th>
+        <th class="nx-agname">Player Name</th>
+        <th class="nx-agteam">Player Team</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+`));
+document.body.appendChild(logTableTemplate);
+
+let logRowTable = <HTMLScriptElement>document.createElement('script');
+logRowTable.id = 'noxi-log-row-template';
+logRowTable.type = 'text/template';
+logRowTable.appendChild(document.createTextNode(`
+<tr class="log-manager-row" style="display: none;">
+    <td class="nx-time"></td>
+    <td class="nx-type"></td>
+    <td class="nx-pname">
+        <a class="nx-plink"></a>
+    </td>
+    <td class="nx-pteam"></td>
+    <td class="nx-agname"></td>
+    <td class="nx-agteam"></td>
+</tr>
+`));
+document.body.appendChild(logRowTable);
+
+// END HTML Template

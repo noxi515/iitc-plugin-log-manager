@@ -1,7 +1,7 @@
-///<reference path="./typings/es6-promise.d.ts" />
-///<reference path="./typings/greasemonkey.d.ts" />
-///<reference path="./typings/iitc.d.ts" />
-///<reference path="./typings/jquery.d.ts" />
+///<reference path="../typings/es6-promise/es6-promise.d.ts" />
+///<reference path="../typings/greasemonkey/greasemonkey.d.ts" />
+///<reference path="../typings/jquery/jquery.d.ts" />
+///<reference path="../typings/iitc.d.ts" />
 
 interface GMPluginInfo {
 }
@@ -31,6 +31,7 @@ interface LogManagerConstants {
     TYPE_CREATE_FIELD: number;
 
     instance: LogManager;
+    configDialog: LogManagerConfigDialog
 
     convertTeam(team: string): number;
     convertType(type: string): number;
@@ -105,4 +106,8 @@ interface FilterValues {
 interface LogManagerDialog {
     updateLogs(logs: QueryResult<Log>): void;
     setOnFilterValuesChangeListener(listener: (values: FilterValues) => void): void;
+}
+
+interface LogManagerConfigDialog {
+    show(): void;
 }
