@@ -29,6 +29,7 @@ function wrapper(plugin_info: GMPluginInfo) {
     let consts: LogManagerConstants = {
         ROW_LIMIT: 1000,
 
+        TEAM_NEU: -1,
         TEAM_ENL: 0,
         TEAM_RES: 1,
         TYPE_NONE: 0,
@@ -43,7 +44,8 @@ function wrapper(plugin_info: GMPluginInfo) {
         instance: null,
         configDialog: null,
 
-        convertTeam: (text: string): number => text === 'RESISTANCE' ? consts.TEAM_RES : consts.TEAM_ENL,
+        convertTeam: (text: string): number =>
+            text === 'RESISTANCE' ? consts.TEAM_RES : text === 'ENLIGHTENED' ? consts.TEAM_ENL : consts.TEAM_NEU,
         convertType: (text: string): number => {
             if (!text) {
                 return consts.TYPE_NONE;
@@ -66,8 +68,10 @@ function wrapper(plugin_info: GMPluginInfo) {
             }
         },
 
-        teamToCssClass: (team: number): string => team === 0 ? 'enl' : 'res',
-        teamToLabel: (team: number): string => team === 0 ? 'ENL' : 'RES',
+        teamToCssClass: (team: number): string =>
+            team === consts.TEAM_ENL ? 'enl' : team === consts.TEAM_RES ? 'res' : 'neu',
+        teamToLabel: (team: number): string =>
+            team === consts.TEAM_ENL ? 'ENL' : team === consts.TEAM_RES ? 'RES' : 'NEU',
         typeToLabel: (type: number): string => {
             switch (type) {
                 case consts.TYPE_NONE:
@@ -429,6 +433,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         private static updateTeamCssClass(element: Element, newTeam: number) {
+            element.classList.remove('neu');
             element.classList.remove('enl');
             element.classList.remove('res');
             element.classList.add(consts.teamToCssClass(newTeam));
@@ -687,18 +692,23 @@ style.appendChild(document.createTextNode(`
     width: 100px;
 }
 
+.log-manager-logs tr.neu,
+.log-manager-logs td.neu {
+    color: #ffffff !important;
+}
+
 .log-manager-logs tr.enl,
 .log-manager-logs td.enl {
     color: #03FE03 !important;
 }
 
+.log-manager-logs tr.enl {
+    background-color: #017F01;
+}
+
 .log-manager-logs tr.res,
 .log-manager-logs td.res {
     color: #00C5FF !important;
-}
-
-.log-manager-logs tr.enl {
-    background-color: #017F01;
 }
 
 .log-manager-logs tr.res {
