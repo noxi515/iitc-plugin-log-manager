@@ -31,8 +31,8 @@ interface LogManagerConstants {
     TYPE_CREATE_LINK: number;
     TYPE_CREATE_FIELD: number;
 
-    instance: LogManager;
-    configDialog: LogManagerConfigDialog
+    instance: ILogManager;
+    configDialog: ILogManagerConfigDialog
 
     convertTeam(team: string): number;
     convertType(type: string): number;
@@ -87,7 +87,7 @@ interface Log {
     portalTeam: number;
 }
 
-interface LogManager {
+interface ILogManager {
 
 }
 
@@ -104,11 +104,20 @@ interface FilterValues {
     dateTo?: Date;
 }
 
-interface LogManagerDialog {
+interface ILogManagerDialog {
     updateLogs(logs: QueryResult<Log>): void;
     setOnFilterValuesChangeListener(listener: (values: FilterValues) => void): void;
 }
 
-interface LogManagerConfigDialog {
+interface ILogManagerConfigDialog {
     show(): void;
+}
+
+interface ILogDatabase {
+    add(log: Log): void;
+    addAll(logs: Array<Log>):void;
+    getAll(limit: number): Promise<QueryResult<Log>>;
+    getWithCondition(indexName: string, limit: number, range: IDBKeyRange): Promise<QueryResult<Log>>;
+    getWithCondition(indexName: string, limit: number, range: IDBKeyRange): Promise<QueryResult<Log>>;
+    clearAll(): Promise<any>;
 }

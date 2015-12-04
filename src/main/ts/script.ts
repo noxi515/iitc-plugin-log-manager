@@ -119,7 +119,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
     };
 
-    class LogManagerImpl implements LogManager {
+    class LogManager implements ILogManager {
 
         private static findFromMarkup(array: Array<Array<string|PlainText|Player|PortalInfo>>, type: string): any {
             for (var i = 0; i < array.length; i++) {
@@ -131,8 +131,8 @@ function wrapper(plugin_info: GMPluginInfo) {
             return null;
         }
 
-        private db: LogDB;
-        private dialog: LogManagerDialog;
+        private db: ILogDatabase;
+        private dialog: ILogManagerDialog;
 
         constructor(private _window: PluginWindow, private plugin_info: GMPluginInfo) {
             if (typeof _window.plugin !== 'function') {
@@ -140,10 +140,10 @@ function wrapper(plugin_info: GMPluginInfo) {
                 };
             }
 
-            this.db = new LogDB();
+            this.db = new LogDatabase();
 
             consts.instance = this;
-            consts.configDialog = new LogManagerConfigDialogImpl(_window, this.db);
+            consts.configDialog = new LogManagerConfigDialog(_window, this.db);
             _window.plugin.logManager = consts;
         }
 
@@ -186,7 +186,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         private onDialogOpen(target: Element) {
-            this.dialog = new LogManagerDialogImpl($(target));
+            this.dialog = new LogManagerDialog($(target));
             this.dialog.setOnFilterValuesChangeListener(values => this.onFilterValuesChanged(values));
 
             this.db.getAll(consts.ROW_LIMIT)
@@ -243,9 +243,9 @@ function wrapper(plugin_info: GMPluginInfo) {
                         return;
 
                     let time = new Date(chat[1]);
-                    let player: Player = LogManagerImpl.findFromMarkup(detail.markup, "PLAYER");
-                    let text: PlainText = LogManagerImpl.findFromMarkup(detail.markup, "TEXT");
-                    let portal: PortalInfo = LogManagerImpl.findFromMarkup(detail.markup, "PORTAL");
+                    let player: Player = LogManager.findFromMarkup(detail.markup, "PLAYER");
+                    let text: PlainText = LogManager.findFromMarkup(detail.markup, "TEXT");
+                    let portal: PortalInfo = LogManager.findFromMarkup(detail.markup, "PORTAL");
 
                     let log: Log = {
                         "id": (<string>chat[0]).substr(0, 32),
@@ -281,7 +281,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
     }
 
-    class LogManagerDialogImpl implements LogManagerDialog {
+    class LogManagerDialog implements ILogManagerDialog {
 
         private static parseDate(str: string): Date {
             if (!str)
@@ -378,11 +378,11 @@ function wrapper(plugin_info: GMPluginInfo) {
                         break;
 
                     case 'dateFrom':
-                        newValues.dateFrom = value ? LogManagerDialogImpl.parseDate(value) : null;
+                        newValues.dateFrom = value ? LogManagerDialog.parseDate(value) : null;
                         break;
 
                     case 'dateTo':
-                        newValues.dateTo = value ? LogManagerDialogImpl.parseDate(value) : null;
+                        newValues.dateTo = value ? LogManagerDialog.parseDate(value) : null;
                         break;
                 }
             }
@@ -455,7 +455,7 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     }
 
-    class LogDB {
+    class LogDatabase implements ILogDatabase {
 
         private db: DBDatabase;
 
@@ -584,11 +584,11 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     }
 
-    class LogManagerConfigDialogImpl implements LogManagerConfigDialog {
+    class LogManagerConfigDialog implements ILogManagerConfigDialog {
 
         private initialized: boolean = false;
 
-        constructor(private _window: PluginWindow, private db: LogDB) {
+        constructor(private _window: PluginWindow, private db: ILogDatabase) {
         }
 
 
@@ -643,7 +643,7 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     }
 
-    new LogManagerImpl(<PluginWindow>window, plugin_info).exec();
+    new LogManager(<PluginWindow>window, plugin_info).exec();
 }
 
 // inject code into site context
