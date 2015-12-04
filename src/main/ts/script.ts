@@ -131,8 +131,12 @@ function wrapper(plugin_info: GMPluginInfo) {
             return null;
         }
 
-        private db: ILogDatabase;
-        private dialog: ILogManagerDialog;
+        private _db: ILogDatabase;
+        private _dialog: ILogManagerDialog;
+
+        public db(): ILogDatabase {
+            return this._db;
+        }
 
         constructor(private _window: PluginWindow, private plugin_info: GMPluginInfo) {
             if (typeof _window.plugin !== 'function') {
@@ -140,10 +144,10 @@ function wrapper(plugin_info: GMPluginInfo) {
                 };
             }
 
-            this.db = new LogDatabase();
+            this._db = new LogDatabase();
 
             consts.instance = this;
-            consts.configDialog = new LogManagerConfigDialog(_window, this.db);
+            consts.configDialog = new LogManagerConfigDialog(_window, this._db);
             _window.plugin.logManager = consts;
         }
 
@@ -176,7 +180,7 @@ function wrapper(plugin_info: GMPluginInfo) {
                     "html": `<div id="log-manager-dialog-body"></div>`,
                     "width": 900,
                     "closeCallback": () => {
-                        this.dialog = null;
+                        this._dialog = null;
                     }
                 });
             });
@@ -186,11 +190,11 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         private onDialogOpen(target: Element) {
-            this.dialog = new LogManagerDialog($(target));
-            this.dialog.setOnFilterValuesChangeListener(values => this.onFilterValuesChanged(values));
+            this._dialog = new LogManagerDialog($(target));
+            this._dialog.setOnFilterValuesChangeListener(values => this.onFilterValuesChanged(values));
 
-            this.db.getAll(consts.ROW_LIMIT)
-                .then(result => this.dialog.updateLogs(result))
+            this._db.getAll(consts.ROW_LIMIT)
+                .then(result => this._dialog.updateLogs(result))
                 .catch(e => console.error(`Fetch Error: ${e}`));
         }
 
@@ -213,11 +217,11 @@ function wrapper(plugin_info: GMPluginInfo) {
             var promise: Promise<QueryResult<Log>>;
             if (indexNameArgs.length == 0) {
                 if (!values.dateFrom && !values.dateTo) {
-                    promise = this.db.getAll(consts.ROW_LIMIT);
+                    promise = this._db.getAll(consts.ROW_LIMIT);
                 } else {
                     let lower = values.dateFrom ? values.dateFrom : new Date(2015, 1, 1, 0, 0, 0, 0);
                     let upper = values.dateTo ? values.dateTo : new Date();
-                    promise = this.db.getWithCondition('time', consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
+                    promise = this._db.getWithCondition('time', consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
                 }
             } else {
                 indexNameArgs.push('time');
@@ -226,10 +230,10 @@ function wrapper(plugin_info: GMPluginInfo) {
                 lower.push(values.dateFrom ? values.dateFrom : new Date(2015, 1, 1, 0, 0, 0, 0));
                 let upper = args.slice();
                 upper.push(values.dateTo ? values.dateTo : new Date());
-                promise = this.db.getWithCondition(indexNameArgs.join(','), consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
+                promise = this._db.getWithCondition(indexNameArgs.join(','), consts.ROW_LIMIT, IDBKeyRange.bound(lower, upper));
             }
 
-            promise.then(result => this.dialog.updateLogs(result))
+            promise.then(result => this._dialog.updateLogs(result))
                    .catch(e => console.error(`Fetch Error: ${e}`));
         }
 
@@ -260,7 +264,7 @@ function wrapper(plugin_info: GMPluginInfo) {
                     };
 
                     logs.push(log);
-                    this.db.add(log);
+                    this._db.add(log);
                 }
             );
 
@@ -297,27 +301,27 @@ function wrapper(plugin_info: GMPluginInfo) {
             return new Date(year, month, day, hour, minute, second, 0);
         }
 
-        private $title: JQuery;
-        private $filters: JQuery;
-        private $table: JQuery;
-        private $inputs: JQuery;
+        private _$title: JQuery;
+        private _$filters: JQuery;
+        private _$table: JQuery;
+        private _$inputs: JQuery;
 
-        private wrappers: Array<LogRowWrapper> = new Array(1000);
+        private _wrappers: Array<LogRowWrapper> = new Array(1000);
 
-        private filterChangeListener: (values: FilterValues) => void;
-        private filterValues: FilterValues = {};
+        private _filterChangeListener: (values: FilterValues) => void;
+        private _filterValues: FilterValues = {};
 
         constructor(private $root: JQuery) {
-            this.$title = $root.prev().find('.ui-dialog-title');
-            this.$filters = $($('#noxi-log-filter-template').html());
-            this.$table = $($('#noxi-log-table-template').html());
+            this._$title = $root.prev().find('.ui-dialog-title');
+            this._$filters = $($('#noxi-log-filter-template').html());
+            this._$table = $($('#noxi-log-table-template').html());
 
-            let $tableBody = $(this.$table.find('tbody'));
+            let $tableBody = $(this._$table.find('tbody'));
             let logRowTemplate = $('#noxi-log-row-template').html();
             for (var i = 0; i < 1000; i++) {
                 let $row = $(logRowTemplate);
                 $tableBody.append($row);
-                this.wrappers[i] = new LogRowWrapper($row);
+                this._wrappers[i] = new LogRowWrapper($row);
             }
 
             // Links in dialog events
@@ -327,12 +331,12 @@ function wrapper(plugin_info: GMPluginInfo) {
             });
 
             this.$root.children()
-                .append(this.$filters)
-                .append(this.$table);
+                .append(this._$filters)
+                .append(this._$table);
 
-            this.$inputs = this.$filters.find('input:text, select');
+            this._$inputs = this._$filters.find('input:text, select');
 
-            this.$filters
+            this._$filters
                 .on('keyup', 'input:text', ev => {
                     if (ev.keyCode !== 13)
                         return;
@@ -343,21 +347,21 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         public setOnFilterValuesChangeListener(listener: (values: FilterValues) => void) {
-            this.filterChangeListener = listener;
+            this._filterChangeListener = listener;
         }
 
         public updateLogs(result: QueryResult<Log>): void {
             let logs = result.values;
-            this.$title.text(`Logs (${logs.length} in ${result.count})`);
+            this._$title.text(`Logs (${logs.length} in ${result.count})`);
 
             let length = logs.length;
-            this.wrappers.forEach((w: LogRowWrapper, i: number) => w.log = i < length ? logs[i] : null);
+            this._wrappers.forEach((w: LogRowWrapper, i: number) => w.log = i < length ? logs[i] : null);
         }
 
         private onFilterChanged() {
             let newValues: FilterValues = {};
-            for (var i = 0; i < this.$inputs.length; i++) {
-                let el = <HTMLInputElement|HTMLSelectElement>this.$inputs[i];
+            for (var i = 0; i < this._$inputs.length; i++) {
+                let el = <HTMLInputElement|HTMLSelectElement>this._$inputs[i];
                 if (!el.checkValidity())
                     return;
 
@@ -387,25 +391,25 @@ function wrapper(plugin_info: GMPluginInfo) {
                 }
             }
 
-            this.filterValues = newValues;
+            this._filterValues = newValues;
             this.filterChanged();
         }
 
         private filterChanged() {
-            if (this.filterChangeListener)
-                this.filterChangeListener(this.filterValues);
+            if (this._filterChangeListener)
+                this._filterChangeListener(this._filterValues);
         }
     }
 
     class LogRowWrapper {
 
-        private root: HTMLTableRowElement;
-        private time: HTMLTableDataCellElement;
-        private type: HTMLTableDataCellElement;
-        private portalName: HTMLAnchorElement;
-        private portalTeam: HTMLTableDataCellElement;
-        private playerName: HTMLTableDataCellElement;
-        private playerTeam: HTMLTableDataCellElement;
+        private _root: HTMLTableRowElement;
+        private _time: HTMLTableDataCellElement;
+        private _type: HTMLTableDataCellElement;
+        private _portalName: HTMLAnchorElement;
+        private _portalTeam: HTMLTableDataCellElement;
+        private _playerName: HTMLTableDataCellElement;
+        private _playerTeam: HTMLTableDataCellElement;
 
         private _log: Log;
 
@@ -415,35 +419,35 @@ function wrapper(plugin_info: GMPluginInfo) {
 
         set log(log: Log) {
             if (log == null) {
-                this.$root.hide();
+                this._$root.hide();
                 return;
             }
 
-            this.$root.show();
+            this._$root.show();
 
-            this.time.textContent = consts.formatDate(log.time);
-            this.type.textContent = consts.typeToLabel(log.type);
-            this.portalName.textContent = log.portalName;
-            this.portalName.href = consts.createPortalLink(log);
-            this.portalTeam.textContent = consts.teamToLabel(log.portalTeam);
-            this.playerName.textContent = log.playerName;
-            this.playerTeam.textContent = consts.teamToLabel(log.playerTeam);
+            this._time.textContent = consts.formatDate(log.time);
+            this._type.textContent = consts.typeToLabel(log.type);
+            this._portalName.textContent = log.portalName;
+            this._portalName.href = consts.createPortalLink(log);
+            this._portalTeam.textContent = consts.teamToLabel(log.portalTeam);
+            this._playerName.textContent = log.playerName;
+            this._playerTeam.textContent = consts.teamToLabel(log.playerTeam);
 
-            LogRowWrapper.updateTeamCssClass(this.root, log.playerTeam);
-            LogRowWrapper.updateTeamCssClass(this.portalTeam, log.portalTeam);
-            LogRowWrapper.updateTeamCssClass(this.playerTeam, log.playerTeam);
+            LogRowWrapper.updateTeamCssClass(this._root, log.playerTeam);
+            LogRowWrapper.updateTeamCssClass(this._portalTeam, log.portalTeam);
+            LogRowWrapper.updateTeamCssClass(this._playerTeam, log.playerTeam);
 
             this._log = log;
         }
 
-        constructor(private $root: JQuery) {
-            this.root = <HTMLTableRowElement>$root[0];
-            this.time = <HTMLTableDataCellElement>this.root.children[0];
-            this.type = <HTMLTableDataCellElement>this.root.children[1];
-            this.portalName = <HTMLAnchorElement>(<HTMLElement>this.root.children[2]).children[0];
-            this.portalTeam = <HTMLTableDataCellElement>this.root.children[3];
-            this.playerName = <HTMLTableDataCellElement>this.root.children[4];
-            this.playerTeam = <HTMLTableDataCellElement>this.root.children[5];
+        constructor(private _$root: JQuery) {
+            this._root = <HTMLTableRowElement>_$root[0];
+            this._time = <HTMLTableDataCellElement>this._root.children[0];
+            this._type = <HTMLTableDataCellElement>this._root.children[1];
+            this._portalName = <HTMLAnchorElement>(<HTMLElement>this._root.children[2]).children[0];
+            this._portalTeam = <HTMLTableDataCellElement>this._root.children[3];
+            this._playerName = <HTMLTableDataCellElement>this._root.children[4];
+            this._playerTeam = <HTMLTableDataCellElement>this._root.children[5];
         }
 
         private static updateTeamCssClass(element: Element, newTeam: number) {
@@ -457,25 +461,25 @@ function wrapper(plugin_info: GMPluginInfo) {
 
     class LogDatabase implements ILogDatabase {
 
-        private db: DBDatabase;
+        private _db: DBDatabase;
 
         constructor() {
             let req = indexedDB.open('log-manager', 2);
             req.onerror = () => console.error('IndexedDB open error');
-            req.onsuccess = ev => this.db = (<any>ev.target).result;
+            req.onsuccess = ev => this._db = (<any>ev.target).result;
             req.onupgradeneeded = ev => {
-                this.db = (<any>ev.target).result;
-                this.db.onerror = ev => console.error(`DB error: ${ev}`);
+                this._db = (<any>ev.target).result;
+                this._db.onerror = ev => console.error(`DB error: ${ev}`);
 
                 let store: DBObjectStore<Log>;
-                if (this.db.objectStoreNames.contains('logs')) {
-                    store = this.db.transaction('logs', 'readwrite').objectStore('logs');
+                if (this._db.objectStoreNames.contains('logs')) {
+                    store = this._db.transaction('logs', 'readwrite').objectStore('logs');
                     var indexNames = store.indexNames;
                     for (var i = 0; i < indexNames.length; i++) {
                         store.deleteIndex(indexNames[i]);
                     }
                 } else {
-                    store = this.db.createObjectStore('logs', {"keyPath": "id"});
+                    store = this._db.createObjectStore('logs', {"keyPath": "id"});
                 }
 
                 let nonUnique = {"unique": false};
@@ -575,27 +579,27 @@ function wrapper(plugin_info: GMPluginInfo) {
         }
 
         private getWritableStore(): DBObjectStore<Log> {
-            return this.db.transaction(['logs'], 'readwrite').objectStore('logs');
+            return this._db.transaction(['logs'], 'readwrite').objectStore('logs');
         }
 
         private getReadableStore(): DBObjectStore<Log> {
-            return this.db.transaction(['logs'], 'readonly').objectStore('logs');
+            return this._db.transaction(['logs'], 'readonly').objectStore('logs');
         }
 
     }
 
     class LogManagerConfigDialog implements ILogManagerConfigDialog {
 
-        private initialized: boolean = false;
+        private _initialized: boolean = false;
 
-        constructor(private _window: PluginWindow, private db: ILogDatabase) {
+        constructor(private _window: PluginWindow, private _db: ILogDatabase) {
         }
 
 
         public show(): void {
-            if (!this.initialized) {
+            if (!this._initialized) {
                 this.init();
-                this.initialized = true;
+                this._initialized = true;
             }
 
             var $dialog = $('#dialog-log-manager-config');
@@ -632,7 +636,7 @@ function wrapper(plugin_info: GMPluginInfo) {
         private attachEventHandlers(): void {
             let $body = $('#log-manager-config-dialog-body');
             $body.on('click', '#delete-logs', () => {
-                this.db.clearAll()
+                this._db.clearAll()
                     .then(() => {
                         alert(`Delete logs complete.`);
                         window.location.reload();

@@ -88,7 +88,7 @@ interface Log {
 }
 
 interface ILogManager {
-
+    db(): ILogDatabase;
 }
 
 interface QueryResult<T> {
